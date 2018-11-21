@@ -8,14 +8,14 @@ module VGA(clk, hsync, vsync, active_video, HCount, VCount);
 	 output reg [8:0] VCount;
   
 	 // 640x480, 25 MHz clk
-	 parameter ACTIVE_H = 640; 		//800;
-	 parameter FRONT_PORCH_H = 16;   //56;
-	 parameter SYNC_PULSE_H = 96; 	//120;
-	 parameter H_TOTAL = 800; 			//1040; 
-	 parameter ACTIVE_V = 480; 		//600;
-	 parameter FRONT_PORCH_V = 11;   //37;
-	 parameter SYNC_PULSE_V = 2; 		//6;
-	 parameter V_TOTAL = 524; 			//666; 
+	 parameter ACTIVE_H = 640; 		
+	 parameter FRONT_PORCH_H = 16;   
+	 parameter SYNC_PULSE_H = 96; 	
+	 parameter H_TOTAL = 800; 			
+	 parameter ACTIVE_V = 480; 		
+	 parameter FRONT_PORCH_V = 11;   
+	 parameter SYNC_PULSE_V = 2; 		
+	 parameter V_TOTAL = 524; 			
 
     wire HMax = (HCount == H_TOTAL); 
     wire VMax = (VCount == V_TOTAL);
