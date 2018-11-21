@@ -53,11 +53,7 @@ module memory(clk, data_in, x_loc, y_loc, readEnable, data_out, rst);
 			data_out = world_memory[(15 * (y_loc - 1)) + (x_loc - 1)];
 			//data_out = 2'b01;
 		end
-		else
-		begin
-			//write
-			data_out = 2'b00;
-		end
+	// Took out the code for the else statement - data_out needs to keep the previous value
 	end
 	
 	 
