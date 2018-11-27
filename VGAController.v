@@ -1,16 +1,17 @@
 `timescale 1ns / 1ps
 
-module VGAController(clk, reset, vga_clk, RED, GREEN, BLUE, hsync, vsync);
+module VGAController(clk, reset, data, XLocation, YLocation, vga_clk, RED, GREEN, 
+							BLUE, hsync, vsync);
 
 	 input clk;
 	 input reset;
-	 wire [1:0] data;  				// 01 is food, 10 is snake, 00 is world
+	 input [1:0] data;				// 01 is food, 10 is snake, 00 is world
 	 output wire vga_clk;
 	 output reg [7:0] RED;
 	 output reg [7:0] GREEN;
 	 output reg [7:0] BLUE;
-	 wire [4:0] XLocation;
-	 wire [4:0] YLocation;
+	 output wire [4:0] XLocation;
+	 output wire [4:0] YLocation;
 	 output hsync;
 	 output vsync;
 	 reg clkcount;          // vga clock is 2 clk cycles
@@ -83,8 +84,8 @@ module VGAController(clk, reset, vga_clk, RED, GREEN, BLUE, hsync, vsync);
 	
 	end
 	
-	memory mem(.clk(clk), .data_in(2'b00), .x_loc(XLocation), .y_loc(YLocation), .readEnable(1'b1), 
-		.data_out(data), .rst(!reset));
+	//memory mem(.clk(clk), .data_in(2'b00), .x_loc(XLocation), .y_loc(YLocation), .readEnable(1'b1), 
+		//.data_out(data), .rst(!reset));
 
 
 endmodule
