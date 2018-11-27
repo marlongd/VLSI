@@ -1,5 +1,5 @@
-module snakeWriter (clk, readSnake, snake_in, x_loc, y_loc, data_out);
-	input clk, readSnake;
+module snakeWriter (clk, writeSnake, snake_in, x_loc, y_loc, data_out);
+	input clk, writeSnake;
 	input [1799:0] snake_in;
 	
 	output reg [3:0] x_loc;
@@ -14,7 +14,7 @@ module snakeWriter (clk, readSnake, snake_in, x_loc, y_loc, data_out);
 	
 	always@(posedge clk)
 	begin
-	    if(!readSnake) begin // write
+	    if(writeSnake) begin // write
 		    for (i=0; i<1799; i=i+8) begin
                 x_loc <= snake_in[i+3 -: 3];
                 y_loc <= snake_in[i+7 -: 3];

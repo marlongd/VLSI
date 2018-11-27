@@ -18,6 +18,9 @@ module VGAController(clk, reset, data, XLocation, YLocation, vga_clk, RED, GREEN
     wire active_video;
     wire [9:0] XCount;
 	 wire [8:0] YCount;
+	 //output reg read_enable;
+	 
+	 
 	
 	 
 	 //INPUT from memory -> 255 
@@ -41,12 +44,13 @@ module VGAController(clk, reset, data, XLocation, YLocation, vga_clk, RED, GREEN
 	assign vga_clk = clkcount;
 	
 	assign XLocation = ((XCount - 80) / 32) + 1;
-	assign YLocation = (YCount / 32) + 1;
+	assign YLocation = (YCount / 32) + 1; 
 
 	always @(posedge vga_clk) // Flash LED every second to verify vga_clk
 	begin
 	if (active_video)
 		begin
+
 			// 15x15 grid, 32x32 pixel squares shave 80 pixels off of each end
 			if ((XCount > 80) && (XCount < 560)) // Bright area
 			begin			
