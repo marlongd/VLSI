@@ -46,55 +46,61 @@ begin
 						end
 	else state <= next_state;
 	
-	
+	new_head = snake[index -:8];
 	case(state)
 	S_UP:		begin
 	if(direction != S_DOWN) begin
 
 	//move up
-	new_head = snake[index -:8];
-	new_head = {new_head[7:4]-1'b1, new_head[3:0]};
-	snake = snake >> 8; 
-	snake[index-7 +:8] = new_head; ///****************
+	//new_head = snake[index -:8];
+	new_head = {new_head[7:4]-1'b1, new_head[3:0]};	
 	direction = S_UP;
 	
 	end
+	else new_head ={new_head[7:4]+1'b1, new_head[3:0]};	
 	end
 	S_DOWN:	begin
 	if(direction != S_UP) begin
 	//move up
-	new_head = snake[index -:8];
+	//new_head = snake[index -:8];
 	new_head = {new_head[7:4]+1'b1, new_head[3:0]};
-	snake = snake >> 8; 
-	snake[index-7 +:8] = new_head; ///****************
+	//snake = snake >> 8; 
+	//snake[index-7 +:8] = new_head; ///****************
 	direction = S_DOWN;
 	end
+	
+	else new_head ={new_head[7:4]-1'b1, new_head[3:0]};	
 	end 
 	S_LEFT:  begin
 	if(direction != S_RIGHT) begin
 	//move up
-	new_head = snake[index -:8];
+	
 	new_head = {new_head[7:4], new_head[3:0]-1'b1};
-	snake = snake >> 8; 
-	snake[index-7 +:8] = new_head; ///****************
+	//snake = snake >> 8; 
+	//snake[index-7 +:8] = new_head; ///****************
 	direction = S_LEFT;
 	end
+	else new_head ={new_head[7:4], new_head[3:0]+1'b1};	
 	end 
 	S_RIGHT: begin
 	if(direction != S_LEFT) begin
 	//move up
-	new_head = snake[index -:8];
+	//new_head = snake[index -:8];
 	new_head = {new_head[7:4], new_head[3:0]+1'b1};
-	snake = snake >> 8; 
-	snake[index-7 +:8] = new_head; ///****************
+	//snake = snake >> 8; 
+	//snake[index-7 +:8] = new_head; ///****************
 	direction = S_RIGHT;
 	end
+	else new_head ={new_head[7:4], new_head[3:0]-1'b1};
 	end
 	default: begin
 	
 	 
 	end
 	endcase
+	
+	snake = snake >> 8; 
+	snake[index-7 +:8] = new_head; ///****************
 
 end
 always @*

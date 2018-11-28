@@ -5,10 +5,11 @@
 //-----------------
 
 module memory(clk, data_in, x_loc_vga, y_loc_vga, x_loc_sw, y_loc_sw, writeEnable, 
-					data_out, rst);
+					data_out, rst, sw_reset);
 	input clk, rst;
 	input writeEnable; //0 write, 1 read
 	input  [1:0] data_in;
+	input sw_reset;
 	//input [0:14] x_loc, y_loc;
 	input [3:0] x_loc_vga, y_loc_vga, x_loc_sw, y_loc_sw;
 	output reg [1:0] data_out;
@@ -32,7 +33,7 @@ module memory(clk, data_in, x_loc_vga, y_loc_vga, x_loc_sw, y_loc_sw, writeEnabl
 	
 	always @(posedge clk)
 	begin
-	    if(rst)begin
+	    if(rst || sw_reset)begin
 			for(i=3; i<225; i= i+1)begin
 				world_memory[i] <= 2'b00;    // world populated
 			end
@@ -42,8 +43,8 @@ module memory(clk, data_in, x_loc_vga, y_loc_vga, x_loc_sw, y_loc_sw, writeEnabl
 			//world_memory[2] <= 2'b10;
 			//world_memory[55] <= 2'b01;  // 1 food block
 		end
-			
-		if(writeEnable) world_memory[15 * (y_loc_sw - 1) + x_loc_sw]<= data_in;
+		if(x_loc_sw ==0 || y_loc_sw ==0)	begin end
+		else if(writeEnable) world_memory[15 * (y_loc_sw - 1) + x_loc_sw]<= data_in;
 	end
 	
 	always @*
