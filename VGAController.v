@@ -10,8 +10,8 @@ module VGAController(clk, reset, data, XLocation, YLocation, vga_clk, RED, GREEN
 	 output reg [7:0] RED;
 	 output reg [7:0] GREEN;
 	 output reg [7:0] BLUE;
-	 output wire [4:0] XLocation;
-	 output wire [4:0] YLocation;
+	 output wire [3:0] XLocation;
+	 output wire [3:0] YLocation;
 	 output hsync;
 	 output vsync;
 	 reg clkcount;          // vga clock is 2 clk cycles

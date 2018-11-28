@@ -10,7 +10,7 @@ module memory(clk, data_in, x_loc_vga, y_loc_vga, x_loc_sw, y_loc_sw, writeEnabl
 	input writeEnable; //0 write, 1 read
 	input  [1:0] data_in;
 	//input [0:14] x_loc, y_loc;
-	input [4:0] x_loc_vga, y_loc_vga, x_loc_sw, y_loc_sw;
+	input [3:0] x_loc_vga, y_loc_vga, x_loc_sw, y_loc_sw;
 	output reg [1:0] data_out;
 	
 	integer i;
@@ -37,10 +37,10 @@ module memory(clk, data_in, x_loc_vga, y_loc_vga, x_loc_sw, y_loc_sw, writeEnabl
 				world_memory[i] <= 2'b00;    // world populated
 			end
 			
-			world_memory[0] <= 2'b10;    // 3 snake blocks populated
-			world_memory[1] <= 2'b10;
-			world_memory[2] <= 2'b10;
-			world_memory[55] <= 2'b01;  // 1 food block
+			//world_memory[0] <= 2'b10;    // 3 snake blocks populated
+			//world_memory[1] <= 2'b10;
+			//world_memory[2] <= 2'b10;
+			//world_memory[55] <= 2'b01;  // 1 food block
 		end
 			
 		if(writeEnable) world_memory[15 * (y_loc_sw - 1) + x_loc_sw]<= data_in;

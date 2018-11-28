@@ -1,8 +1,9 @@
-module snake_top(clk, reset, vga_clk, RED, GREEN, BLUE, hsync, vsync, up_button,
+`timescale 1ns / 1ps
+module snake_top_tb(vga_clk, RED, GREEN, BLUE, hsync, vsync, up_button,
 						down_button, left_button, right_button, LED0, LED1, LED2, LED3);
 		
-		input clk, reset, up_button, down_button, left_button, right_button;
-		reg slow_clk;
+		reg clk, reset;
+		input up_button, down_button, left_button, right_button;
 		output wire [7:0] RED, GREEN, BLUE;
 		output wire hsync, vsync, vga_clk;
 		wire [1:0] data;
@@ -11,7 +12,8 @@ module snake_top(clk, reset, vga_clk, RED, GREEN, BLUE, hsync, vsync, up_button,
 		wire write_enable;
 		wire [1799:0] snake;
 		wire [3:0] x_loc_sw, y_loc_sw;
-		reg [11:0] clk_counter;
+		reg slow_clk;
+		reg [6:0] clk_counter;
 		
 		// LED for testing, remove later
 		output wire LED0, LED1, LED2, LED3;
@@ -21,19 +23,33 @@ module snake_top(clk, reset, vga_clk, RED, GREEN, BLUE, hsync, vsync, up_button,
 		assign LED1 = !down_button;
 		assign LED2 = !up_button;
 		assign LED3 = !left_button;
-		
-		always @(posedge clk) begin
-		if (reset) begin
-			clk_counter = 0;
-			slow_clk = 0;
-		end
-		
+
+	initial begin
+		clk_counter = 0;
+		slow_clk = 0;
+		reset = 1'b1;
+		clk = 1'b0;
+		#10
+		clk = 1'b1;
+		#10
+		clk = 1'b0;
+		slow_clk = 1;
+		#10	
+		reset = 1'b0;
+	end
+	
+	always @(posedge clk) begin
 		clk_counter = clk_counter + 1;
-		if (clk_counter == 12'b111111111111) begin
+		if (clk_counter == 6'd127) begin
 			slow_clk = !slow_clk;
+			reset = 0;
 			end
 		
-		end
+	end
+	
+	always begin
+		#20 clk = !clk; // 40 ns period, 25 MHz clk
+	 end
 		
 		memory mem(.clk(clk), .data_in(snake_data), .x_loc_vga(XLocation), .y_loc_vga(YLocation), 
 			.x_loc_sw(x_loc_sw), .y_loc_sw(y_loc_sw), .writeEnable(1'b1), .data_out(data), 
