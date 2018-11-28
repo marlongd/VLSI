@@ -43,8 +43,8 @@ module memory(clk, data_in, x_loc_vga, y_loc_vga, x_loc_sw, y_loc_sw, writeEnabl
 			//world_memory[2] <= 2'b10;
 			//world_memory[55] <= 2'b01;  // 1 food block
 		end
-		if(x_loc_sw ==0 || y_loc_sw ==0)	begin end
-		else if(writeEnable) world_memory[15 * (y_loc_sw - 1) + x_loc_sw]<= data_in;
+		//if(x_loc_sw ==0 || y_loc_sw ==0)	begin end
+		if(writeEnable) world_memory[15 * (y_loc_sw - 1) + x_loc_sw]<= data_in;
 	end
 	
 	always @*

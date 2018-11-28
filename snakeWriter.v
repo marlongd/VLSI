@@ -14,7 +14,7 @@ module snakeWriter (clk, writeSnake, snake_in, x_loc, y_loc, data_out, reset_out
 	
 	initial begin
 		count <= 0;
-		reset_out <= 0;
+		//reset_out <= 0;
 		//temp_count =0;
 	end
 	
@@ -29,12 +29,12 @@ module snakeWriter (clk, writeSnake, snake_in, x_loc, y_loc, data_out, reset_out
 
 				if (count == 16) begin//if ((x_temp == 4'd0) || (y_temp == 4'd0)) begin
 					count <= 0;
-					reset_out <= 1;
+					//reset_out <= 1;
 				end
 				
 				else begin
 					count <= count + 8;
-					reset_out <= 0;
+					//reset_out <= 0;
 					//temp_count = count -1;
 					
 				end

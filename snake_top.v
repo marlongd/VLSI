@@ -12,7 +12,7 @@ module snake_top(clk, reset, vga_clk, RED, GREEN, BLUE, hsync, vsync, up_button,
 		wire [1799:0] snake;
 		wire [3:0] x_loc_sw, y_loc_sw;
 		reg [21:0] clk_counter;
-		wire sw_reset;
+		reg snake_reset;
 		
 		// LED for testing, remove later
 		output wire LED0, LED1, LED2, LED3;
@@ -32,20 +32,24 @@ module snake_top(clk, reset, vga_clk, RED, GREEN, BLUE, hsync, vsync, up_button,
 		clk_counter = clk_counter + 1;
 		if (clk_counter == 22'b1111111111111111111111) begin
 			slow_clk = !slow_clk;
-			end
+			snake_reset = 1;
+		end
+		else begin
+			snake_reset = 0;
+		end
 		
 		end
 		
 		memory mem(.clk(clk), .data_in(snake_data), .x_loc_vga(XLocation), .y_loc_vga(YLocation), 
 			.x_loc_sw(x_loc_sw), .y_loc_sw(y_loc_sw), .writeEnable(1'b1), .data_out(data), 
-			.rst(reset), .sw_reset(sw_reset));
+			.rst(reset), .sw_reset(snake_reset));
 		
 		VGAController vga_c(.clk(clk), .reset(reset), .data(data), .XLocation(XLocation),
 			.YLocation(YLocation), .vga_clk(vga_clk), .RED(RED), .GREEN(GREEN), .BLUE(BLUE), 
 			.hsync(hsync), .vsync(vsync));
 			
 		snakeWriter sw(.clk(clk), .writeSnake(1'b1), .snake_in(snake), .x_loc(x_loc_sw), 
-			.y_loc(y_loc_sw), .data_out(snake_data), .reset_out(sw_reset));
+			.y_loc(y_loc_sw), .data_out(snake_data));
 		
 		Snake s(.slw_clk(slow_clk), .reset(reset), .right(!right_button), .left(!left_button), 
 			.up(!up_button), .down(!down_button), .snake(snake));

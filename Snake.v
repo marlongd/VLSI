@@ -33,7 +33,6 @@ parameter S_LEFT  = 3'd3; // 0100 - and so on
 parameter S_RIGHT = 3'd4; 
  
 
-
 always@(posedge slw_clk)
 begin
 	if(reset)begin state <= 3'd4; //right
