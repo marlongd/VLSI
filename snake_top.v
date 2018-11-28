@@ -11,7 +11,7 @@ module snake_top(clk, reset, vga_clk, RED, GREEN, BLUE, hsync, vsync, up_button,
 		wire write_enable;
 		wire [1799:0] snake;
 		wire [3:0] x_loc_sw, y_loc_sw;
-		reg [11:0] clk_counter;
+		reg [20:0] clk_counter;
 		
 		// LED for testing, remove later
 		output wire LED0, LED1, LED2, LED3;
@@ -29,7 +29,7 @@ module snake_top(clk, reset, vga_clk, RED, GREEN, BLUE, hsync, vsync, up_button,
 		end
 		
 		clk_counter = clk_counter + 1;
-		if (clk_counter == 12'b111111111111) begin
+		if (clk_counter == 21'b111111111111111111111) begin
 			slow_clk = !slow_clk;
 			end
 		
