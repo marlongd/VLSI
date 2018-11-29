@@ -24,6 +24,8 @@ parameter S_UP    = 3'd1; // 0001 - the first button pushed
 parameter S_DOWN  = 3'd2; 
 parameter S_LEFT  = 3'd3; 
 parameter S_RIGHT = 3'd4; 
+parameter EAT     = 3'd5;
+parameter DIE     = 3'd6;
  
 
 always@(posedge slw_clk)
@@ -111,6 +113,13 @@ begin
 	end
 	else new_head ={new_head[7:4], new_head[3:0]-1'b1};
 	end
+	
+	EAT: begin
+		new_head = {yfood, xfood};
+		index = index + 8;
+		snake = snake << 8;
+	end
+	
 	default: begin
 	
 	 
@@ -124,6 +133,9 @@ end
 always @*
 begin
 if(reset) next_state =3'd4;
+
+else if(snake[index -:4] == yfood && snake[index-3 -: 4] == xfood)
+				next_state = EAT;
 else if(up) next_state = S_UP;
 
 else if(down) next_state = S_DOWN;
