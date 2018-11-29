@@ -34,7 +34,7 @@ module memory(clk, data_in, x_loc_vga, y_loc_vga, x_loc_sw, y_loc_sw, writeEnabl
 	always @(posedge clk)
 	begin
 	    if(rst || sw_reset)begin
-			for(i=3; i<225; i= i+1)begin
+			for(i=0; i<255; i= i+1)begin
 				world_memory[i] <= 2'b00;    // world populated
 			end
 			

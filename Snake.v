@@ -26,10 +26,10 @@ reg[2:0] direction;
  //snake locations the tail will be stored up front.
 reg[10:0] index;
 reg[7:0] new_head;
-parameter S_IDLE  = 3'd0; // 0000 - no button pushed
-parameter S_UP    = 3'd1; // 0001 - the first button pushed
+parameter S_IDLE  = 3'd0;
+parameter S_UP    = 3'd1; 
 parameter S_DOWN  = 3'd2; 
-parameter S_LEFT  = 3'd3; // 0100 - and so on
+parameter S_LEFT  = 3'd3; 
 parameter S_RIGHT = 3'd4; 
  
 
@@ -70,6 +70,8 @@ begin
 	end
 	
 	else new_head ={new_head[7:4]-1'b1, new_head[3:0]};	
+	
+	
 	end 
 	S_LEFT:  begin
 	if(direction != S_RIGHT) begin
