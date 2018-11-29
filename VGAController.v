@@ -10,8 +10,8 @@ module VGAController(clk, reset, data, XLocation, YLocation, vga_clk, RED, GREEN
 	 output reg [7:0] RED;
 	 output reg [7:0] GREEN;
 	 output reg [7:0] BLUE;
-	 output wire [3:0] XLocation;
-	 output wire [3:0] YLocation;
+	 output reg [3:0] XLocation;
+	 output reg [3:0] YLocation;
 	 output hsync;
 	 output vsync;
 	 reg clkcount;          // vga clock is 2 clk cycles
@@ -43,8 +43,8 @@ module VGAController(clk, reset, data, XLocation, YLocation, vga_clk, RED, GREEN
 	// Drive vga_clk using input clk
 	assign vga_clk = clkcount;
 	
-	assign XLocation = ((XCount - 80) / 32) + 1;
-	assign YLocation = (YCount / 32) + 1; 
+	//assign XLocation = ((XCount - 80) / 32) + 1;
+	//assign YLocation = (YCount / 32) + 1; 
 
 	always @(posedge vga_clk) // Flash LED every second to verify vga_clk
 	begin
@@ -53,7 +53,9 @@ module VGAController(clk, reset, data, XLocation, YLocation, vga_clk, RED, GREEN
 
 			// 15x15 grid, 32x32 pixel squares shave 80 pixels off of each end
 			if ((XCount > 80) && (XCount < 560)) // Bright area
-			begin			
+			begin	
+				XLocation = ((XCount - 80) / 32) + 1;
+				YLocation = (YCount / 32) + 1; 
 		
 				if (data == 2'b00)       // World is blue
 				begin
