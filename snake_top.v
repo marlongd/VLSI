@@ -25,31 +25,27 @@ module snake_top(clk, reset, vga_clk, RED, GREEN, BLUE, hsync, vsync, up_button,
 		assign LED3 = !left_button;
 		
 		always @(posedge clk) begin
-		if (reset) begin
-			clk_counter = 0;
-			slow_clk = 0;
-		end
+			if (reset) begin
+				clk_counter = 0;
+				slow_clk = 0;
+			end
 		
-		clk_counter = clk_counter + 1;
-		if (clk_counter == 22'b1111111111111111000000) begin
-			snake_reset = 1;
-		end
-		else begin
-			snake_reset = 0;
-		end
+			clk_counter = clk_counter + 1;
+			if (clk_counter == 22'b1111000000000000000000) begin
+				snake_reset = 1;
+			end
+			else begin
+				snake_reset = 0;
+			end
 		
-		if (clk_counter == 22'b1111111111111111111111) begin
-			slow_clk = !slow_clk;
-			//snake_reset = 1;
-		end
-		//else begin
-		//	snake_reset = 0;
-		//end
+			if (clk_counter == 22'b1111111111111111111111) begin
+				slow_clk = !slow_clk;
+			end
 		
 		end
 		
 		memory mem(.clk(clk), .data_in(snake_data), .x_loc_vga(XLocation), .y_loc_vga(YLocation), 
-			.x_loc_sw(x_loc_sw), .y_loc_sw(y_loc_sw), .writeEnable(1'b1), .data_out(data), 
+			.x_loc_sw(x_loc_sw), .y_loc_sw(y_loc_sw), .writeEnable(swrite), .data_out(data), 
 			.rst(reset), .sw_reset(snake_reset));
 		
 		VGAController vga_c(.clk(clk), .reset(reset), .data(data), .XLocation(XLocation),
@@ -57,7 +53,7 @@ module snake_top(clk, reset, vga_clk, RED, GREEN, BLUE, hsync, vsync, up_button,
 			.hsync(hsync), .vsync(vsync));
 			
 		snakeWriter sw(.clk(clk), .writeSnake(swrite), .snake_in(snake), .x_loc(x_loc_sw), 
-			.y_loc(y_loc_sw), .data_out(snake_data));
+			.y_loc(y_loc_sw), .data_out(snake_data), .reset(reset));
 		
 		Snake s(.slw_clk(slow_clk), .reset(reset), .right(!right_button), .left(!left_button), 
 			.up(!up_button), .down(!down_button), .snake(snake), .write_snake(swrite));
