@@ -30,13 +30,20 @@ module snake_top(clk, reset, vga_clk, RED, GREEN, BLUE, hsync, vsync, up_button,
 		end
 		
 		clk_counter = clk_counter + 1;
-		if (clk_counter == 22'b1111111111111111111111) begin
-			slow_clk = !slow_clk;
+		if (clk_counter == 22'b1111111111111111000000) begin
 			snake_reset = 1;
 		end
 		else begin
 			snake_reset = 0;
 		end
+		
+		if (clk_counter == 22'b1111111111111111111111) begin
+			slow_clk = !slow_clk;
+			//snake_reset = 1;
+		end
+		//else begin
+		//	snake_reset = 0;
+		//end
 		
 		end
 		

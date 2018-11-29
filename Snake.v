@@ -16,9 +16,6 @@ output reg[1799:0] snake
  //up -
  //rigth +
  // down +
-parameter [1:0] s0 = 2'b00,
-s1 = 2'b01,s2 = 2'b10, s3 = 2'b11;
-
 reg [3:0] state, next_state;
 reg [3:0] xfood; //x pixel
 reg [3:0] yfood; //y pixel
@@ -26,7 +23,7 @@ reg[2:0] direction;
  //snake locations the tail will be stored up front.
 reg[10:0] index;
 reg[7:0] new_head;
-parameter S_IDLE  = 3'd0; // 0000 - no button pushed
+parameter RESET  = 3'd0; // 0000 - no button pushed
 parameter S_UP    = 3'd1; // 0001 - the first button pushed
 parameter S_DOWN  = 3'd2; 
 parameter S_LEFT  = 3'd3; // 0100 - and so on
@@ -35,18 +32,39 @@ parameter S_RIGHT = 3'd4;
 
 always@(posedge slw_clk)
 begin
-	if(reset)begin state <= 3'd4; //right
-						direction= 3'd4; 
-						xfood = 4'd3;
-						yfood = 4'd3;//in the memory
-						snake ={1776'd0,  4'd1, 4'd3, 4'd1, 4'd2,4'd1, 4'd1};
-						index =11'd23;
-						new_head =0; //right
-						end
-	else state <= next_state;
+	if(reset)begin 
+		state <= 3'd0; //RESET
+		snake = 1800'd0;
+	end
 	
+	else begin
+		if (state == RESET) begin
+			state <= 3'd4; // Move right
+			direction= 3'd4; 
+			xfood = 4'd3;
+			yfood = 4'd3;//in the memory
+			snake = {1775'd0, 4'd1, 4'd3, 4'd1, 4'd2, 4'd1, 4'd1};
+			index =11'd23;
+			new_head =0; //right
+		end
+		
+		else state <= next_state;
+	end
+	
+						//direction= 3'd4; 
+						//xfood = 4'd3;
+						//yfood = 4'd3;//in the memory
+						//snake = {1775'd0, 4'd1, 4'd3, 4'd1, 4'd2, 4'd1, 4'd1};
+						//index =11'd23;
+						//new_head =0; //right
+						
+	//else state <= next_state;
 	new_head = snake[index -:8];
 	case(state)
+	RESET: begin
+		snake = 1800'd0;
+		new_head = 0;
+	end
 	S_UP:		begin
 	if(direction != S_DOWN) begin
 
@@ -100,7 +118,7 @@ begin
 	
 	snake = snake >> 8; 
 	snake[index-7 +:8] = new_head; ///****************
-
+	
 end
 always @*
 begin
