@@ -7,21 +7,22 @@ input up,
 input down,
 output reg[1799:0] snake,
 output reg write_snake,
-output reg [10:0] index
+output reg [10:0] index,
+output reg [3:0] xfood, //x pixel
+output reg [3:0] yfood //y pixel
 );
  
 
 reg [3:0] state, next_state;
-reg [3:0] xfood; //x pixel
-reg [3:0] yfood; //y pixel
+
 reg[2:0] direction;
  //snake locations the tail will be stored up front.
 //reg[10:0] index;
 reg[7:0] new_head;
 
 
-parameter RESET   = 3'd0; // 0000 - no button pushed
-parameter S_UP    = 3'd1; // 0001 - the first button pushed
+parameter RESET   = 3'd0;
+parameter S_UP    = 3'd1; 
 parameter S_DOWN  = 3'd2; 
 parameter S_LEFT  = 3'd3; 
 parameter S_RIGHT = 3'd4; 
