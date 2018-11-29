@@ -6,7 +6,8 @@ input left,
 input up,
 input down,
 output reg[1799:0] snake,
-output reg write_snake
+output reg write_snake,
+output reg [10:0] index
 );
  
 
@@ -15,11 +16,11 @@ reg [3:0] xfood; //x pixel
 reg [3:0] yfood; //y pixel
 reg[2:0] direction;
  //snake locations the tail will be stored up front.
-reg[10:0] index;
+//reg[10:0] index;
 reg[7:0] new_head;
 
 
-parameter RESET  = 3'd0; // 0000 - no button pushed
+parameter RESET   = 3'd0; // 0000 - no button pushed
 parameter S_UP    = 3'd1; // 0001 - the first button pushed
 parameter S_DOWN  = 3'd2; 
 parameter S_LEFT  = 3'd3; 
@@ -51,17 +52,12 @@ begin
 						write_snake <=1;
 		end 
 	end
-	
-						//direction= 3'd4; 
-						//xfood = 4'd3;
-						//yfood = 4'd3;//in the memory
-						//snake = {1775'd0, 4'd1, 4'd3, 4'd1, 4'd2, 4'd1, 4'd1};
-						//index =11'd23;
-						//new_head =0; //right
+
 						
 	//else state <= next_state;
 	new_head = snake[index -:8];
 	case(state)
+	
 	RESET: begin
 		snake = 1800'd0;
 		new_head = 0;
@@ -77,6 +73,7 @@ begin
 	end
 	else new_head ={new_head[7:4]+1'b1, new_head[3:0]};	
 	end
+	
 	S_DOWN:	begin
 	if(direction != S_UP) begin
 	//move up
@@ -91,6 +88,7 @@ begin
 	
 	
 	end 
+	
 	S_LEFT:  begin
 	if(direction != S_RIGHT) begin
 	//move up
@@ -102,6 +100,7 @@ begin
 	end
 	else new_head ={new_head[7:4], new_head[3:0]+1'b1};	
 	end 
+	
 	S_RIGHT: begin
 	if(direction != S_LEFT) begin
 	//move up
@@ -118,6 +117,8 @@ begin
 		new_head = {yfood, xfood};
 		index = index + 8;
 		snake = snake << 8;
+		xfood = 0;
+		yfood = 0;
 	end
 	
 	default: begin
@@ -130,22 +131,26 @@ begin
 	snake[index-7 +:8] = new_head; ///****************
 	
 end
-always @*
-begin
-if(reset) next_state =3'd4;
 
-else if(snake[index -:4] == yfood && snake[index-3 -: 4] == xfood)
-				next_state = EAT;
-else if(up) next_state = S_UP;
+	always @*
+	begin
+	
+		if(reset) next_state =3'd4;
 
-else if(down) next_state = S_DOWN;
+		else if(snake[index -:4] == yfood && snake[index-4 -: 4] == xfood)
+						next_state = EAT;
+						
+		else if(up) next_state = S_UP;
 
-else if(left) next_state = S_LEFT;
+		else if(down) next_state = S_DOWN;
 
-else if(right) next_state = S_RIGHT;
+		else if(left) next_state = S_LEFT;
 
-else next_state = next_state;
+		else if(right) next_state = S_RIGHT;
 
+		else if (next_state == EAT) next_state = direction;
+		
+		else next_state = next_state;
 
-end
+	end
 endmodule 
