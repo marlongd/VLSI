@@ -50,8 +50,8 @@ module VGAController(clk, reset, data, XLocation, YLocation, vga_clk, RED, GREEN
 			// 15x15 grid, 32x32 pixel squares shave 80 pixels off of each end
 			if ((XCount > 80) && (XCount < 560)) // Bright area
 			begin	
-				XLocation = ((XCount - 80) / 32) + 1;
-				YLocation = (YCount / 32) + 1; 
+				XLocation = ((XCount - 80) / 32);// + 1;
+				YLocation = (YCount / 32);// + 1; 
 		
 				if (data == 2'b00)       // World is blue
 				begin

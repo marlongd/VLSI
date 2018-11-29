@@ -18,6 +18,8 @@ output reg [3:0] yfood //y pixel
 	reg[2:0] direction;
 	 //snake locations the tail will be stored up front.
 	reg[7:0] new_head;
+	
+	reg [3:0] x_rando_count, y_rando_count;
 
 
 	parameter RESET   = 3'd0;
@@ -35,6 +37,8 @@ output reg [3:0] yfood //y pixel
 			state <= 3'd0; //RESET
 			snake = 1800'd0;
 			write_snake <=0;
+			x_rando_count <= 0;
+			y_rando_count <= 0;
 		end
 		
 		else begin
@@ -50,6 +54,8 @@ output reg [3:0] yfood //y pixel
 			
 			else begin state <= next_state;
 							write_snake <=1;
+				x_rando_count <= x_rando_count +1;
+				if (x_rando_count == 4'b1111) y_rando_count <= y_rando_count + 1;
 			end 
 		end
 
@@ -102,8 +108,8 @@ output reg [3:0] yfood //y pixel
 				new_head = {yfood, xfood};
 				index = index + 8;
 				snake = snake << 8;
-				xfood = 0;
-				yfood = 0;
+				xfood = x_rando_count;
+				yfood = y_rando_count;
 			end
 			
 			default: begin
