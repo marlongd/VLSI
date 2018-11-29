@@ -16,7 +16,7 @@ module memory(clk, data_in, x_loc_vga, y_loc_vga, x_loc_sw, y_loc_sw, writeEnabl
 	
 	integer i;
 	reg [1:0] data;
-	reg [1:0] world_memory [244:0]; //15 X 15 = 225
+	reg [1:0] world_memory [255:0]; //15 X 15 = 225 //16X16 256
 	
 	reg output_bit; //225 grid of on and off
 	
@@ -43,16 +43,19 @@ module memory(clk, data_in, x_loc_vga, y_loc_vga, x_loc_sw, y_loc_sw, writeEnabl
 			//world_memory[2] <= 2'b10;
 			//world_memory[55] <= 2'b01;  // 1 food block
 		end
-		//if(x_loc_sw ==0 || y_loc_sw ==0)	begin end
-		if(writeEnable) world_memory[15 * (y_loc_sw - 1) + x_loc_sw]<= data_in;
-	end
+
+		
+		//if(writeEnable) world_memory[15 * (y_loc_sw - 1) + x_loc_sw]<= data_in;
+		if(writeEnable) world_memory[15 * (y_loc_sw) + x_loc_sw]<= data_in;
+		end
 	
 	always @*
 	begin
 		//always check
 		//if(readEnable)
 		//begin
-			data_out = world_memory[(15 * (y_loc_vga - 1)) + (x_loc_vga - 1)];
+			//data_out = world_memory[(15 * (y_loc_vga - 1)) + (x_loc_vga - 1)];
+			data_out = world_memory[(15 *y_loc_vga) + x_loc_vga];
 			//data_out = 2'b01;
 		//end
 	// Took out the code for the else statement - data_out needs to keep the previous value
