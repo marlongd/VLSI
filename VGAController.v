@@ -18,7 +18,6 @@ module VGAController(clk, reset, data, XLocation, YLocation, vga_clk, RED, GREEN
     wire active_video;
     wire [9:0] XCount;
 	 wire [8:0] YCount;
-	 //output reg read_enable;
 	 
 	 
 	
@@ -42,9 +41,6 @@ module VGAController(clk, reset, data, XLocation, YLocation, vga_clk, RED, GREEN
 	 
 	// Drive vga_clk using input clk
 	assign vga_clk = clkcount;
-	
-	//assign XLocation = ((XCount - 80) / 32) + 1;
-	//assign YLocation = (YCount / 32) + 1; 
 
 	always @(posedge vga_clk) // Flash LED every second to verify vga_clk
 	begin
@@ -89,9 +85,6 @@ module VGAController(clk, reset, data, XLocation, YLocation, vga_clk, RED, GREEN
 		end
 	
 	end
-	
-	//memory mem(.clk(clk), .data_in(2'b00), .x_loc(XLocation), .y_loc(YLocation), .readEnable(1'b1), 
-		//.data_out(data), .rst(!reset));
 
 
 endmodule

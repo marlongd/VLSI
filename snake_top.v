@@ -1,5 +1,5 @@
 module snake_top(clk, reset, vga_clk, RED, GREEN, BLUE, hsync, vsync, up_button,
-						down_button, left_button, right_button, LED0, LED1, LED2, LED3);
+						down_button, left_button, right_button);
 		
 		input clk, reset, up_button, down_button, left_button, right_button;
 		reg slow_clk;
@@ -17,14 +17,6 @@ module snake_top(clk, reset, vga_clk, RED, GREEN, BLUE, hsync, vsync, up_button,
 		wire [10:0] index;
 		wire [3:0]xfood, yfood;
 		
-		// LED for testing, remove later
-		output wire LED0, LED1, LED2, LED3;
-		
-		// Push buttons are inverted
-		assign LED0 = !right_button;
-		assign LED1 = !down_button;
-		assign LED2 = !up_button;
-		assign LED3 = !left_button;
 		
 		always @(posedge clk) begin
 			if (reset) begin

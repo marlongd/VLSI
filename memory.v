@@ -10,7 +10,6 @@ module memory(clk, data_in, x_loc_vga, y_loc_vga, x_loc_sw, y_loc_sw, writeEnabl
 	input writeEnable; //0 write, 1 read
 	input  [1:0] data_in;
 	input sw_reset;
-	//input [0:14] x_loc, y_loc;
 	input [3:0] x_loc_vga, y_loc_vga, x_loc_sw, y_loc_sw;
 	output reg [1:0] data_out;
 	
@@ -37,28 +36,15 @@ module memory(clk, data_in, x_loc_vga, y_loc_vga, x_loc_sw, y_loc_sw, writeEnabl
 			for(i=0; i<255; i= i+1)begin
 				world_memory[i] <= 2'b00;    // world populated
 			end
-			
-			//world_memory[0] <= 2'b10;    // 3 snake blocks populated
-			//world_memory[1] <= 2'b10;
-			//world_memory[2] <= 2'b10;
-			//world_memory[55] <= 2'b01;  // 1 food block
+		
 		end
 
-		
-		//if(writeEnable) world_memory[15 * (y_loc_sw - 1) + x_loc_sw]<= data_in;
 		if(writeEnable) world_memory[15 * (y_loc_sw) + x_loc_sw]<= data_in;
 	end
 	
 	always @*
 	begin
-		//always check
-		//if(readEnable)
-		//begin
-			//data_out = world_memory[(15 * (y_loc_vga - 1)) + (x_loc_vga - 1)];
 			data_out = world_memory[(15 *y_loc_vga) + x_loc_vga];
-			//data_out = 2'b01;
-		//end
-	// Took out the code for the else statement - data_out needs to keep the previous value
 	end
 	
 	 
