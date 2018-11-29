@@ -13,6 +13,7 @@ module snake_top(clk, reset, vga_clk, RED, GREEN, BLUE, hsync, vsync, up_button,
 		wire [3:0] x_loc_sw, y_loc_sw;
 		reg [21:0] clk_counter;
 		reg snake_reset;
+		wire swrite;
 		
 		// LED for testing, remove later
 		output wire LED0, LED1, LED2, LED3;
@@ -55,10 +56,10 @@ module snake_top(clk, reset, vga_clk, RED, GREEN, BLUE, hsync, vsync, up_button,
 			.YLocation(YLocation), .vga_clk(vga_clk), .RED(RED), .GREEN(GREEN), .BLUE(BLUE), 
 			.hsync(hsync), .vsync(vsync));
 			
-		snakeWriter sw(.clk(clk), .writeSnake(1'b1), .snake_in(snake), .x_loc(x_loc_sw), 
+		snakeWriter sw(.clk(clk), .writeSnake(swrite), .snake_in(snake), .x_loc(x_loc_sw), 
 			.y_loc(y_loc_sw), .data_out(snake_data));
 		
 		Snake s(.slw_clk(slow_clk), .reset(reset), .right(!right_button), .left(!left_button), 
-			.up(!up_button), .down(!down_button), .snake(snake));
+			.up(!up_button), .down(!down_button), .snake(snake), .write_snake(swrite));
 
 endmodule

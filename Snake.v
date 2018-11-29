@@ -5,7 +5,8 @@ input right,
 input left,
 input up,
 input down,
-output reg[1799:0] snake
+output reg[1799:0] snake,
+output reg write_snake
 );
  
 
@@ -30,6 +31,7 @@ begin
 	if(reset)begin 
 		state <= 3'd0; //RESET
 		snake = 1800'd0;
+		write_snake <=0;
 	end
 	
 	else begin
@@ -43,7 +45,9 @@ begin
 			new_head =0; //right
 		end
 		
-		else state <= next_state;
+		else begin state <= next_state;
+						write_snake <=1;
+		end 
 	end
 	
 						//direction= 3'd4; 
