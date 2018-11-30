@@ -1,0 +1,40 @@
+[11/29 17:51:27      0s] 
+[11/29 17:51:27      0s] Cadence Innovus(TM) Implementation System.
+[11/29 17:51:27      0s] Copyright 2017 Cadence Design Systems, Inc. All rights reserved worldwide.
+[11/29 17:51:27      0s] 
+[11/29 17:51:27      0s] Version:	v17.11-s080_1, built Fri Aug 4 11:13:11 PDT 2017
+[11/29 17:51:27      0s] Options:	
+[11/29 17:51:27      0s] Date:		Thu Nov 29 17:51:27 2018
+[11/29 17:51:27      0s] Host:		lab2-33.eng.utah.edu (x86_64 w/Linux 3.10.0-862.14.4.el7.x86_64) (4cores*8cpus*Intel(R) Core(TM) i7-4790 CPU @ 3.60GHz 8192KB)
+[11/29 17:51:27      0s] OS:		Red Hat Enterprise Linux Server release 7.5 (Maipo)
+[11/29 17:51:27      0s] 
+[11/29 17:51:27      0s] License:
+[11/29 17:51:28      0s] 		invs	Innovus Implementation System	17.1	checkout succeeded
+[11/29 17:51:28      0s] 		8 CPU jobs allowed with the current license(s). Use setMultiCpuUsage to set your required CPU count.
+[11/29 17:51:36      7s] @(#)CDS: Innovus v17.11-s080_1 (64bit) 08/04/2017 11:13 (Linux 2.6.18-194.el5)
+[11/29 17:51:36      7s] @(#)CDS: NanoRoute 17.11-s080_1 NR170721-2155/17_11-UB (database version 2.30, 390.7.1) {superthreading v1.44}
+[11/29 17:51:36      7s] @(#)CDS: AAE 17.11-s034 (64bit) 08/04/2017 (Linux 2.6.18-194.el5)
+[11/29 17:51:36      7s] @(#)CDS: CTE 17.11-s053_1 () Aug  1 2017 23:31:41 ( )
+[11/29 17:51:36      7s] @(#)CDS: SYNTECH 17.11-s012_1 () Jul 21 2017 02:29:12 ( )
+[11/29 17:51:36      7s] @(#)CDS: CPE v17.11-s095
+[11/29 17:51:36      7s] @(#)CDS: IQRC/TQRC 16.1.1-s215 (64bit) Thu Jul  6 20:18:10 PDT 2017 (Linux 2.6.18-194.el5)
+[11/29 17:51:36      7s] @(#)CDS: OA 22.50-p063 Fri Feb  3 19:45:13 2017
+[11/29 17:51:36      7s] @(#)CDS: SGN 10.10-p124 (19-Aug-2014) (64 bit executable)
+[11/29 17:51:36      7s] @(#)CDS: RCDB 11.10
+[11/29 17:51:36      7s] --- Running on lab2-33.eng.utah.edu (x86_64 w/Linux 3.10.0-862.14.4.el7.x86_64) (4cores*8cpus*Intel(R) Core(TM) i7-4790 CPU @ 3.60GHz 8192KB) ---
+[11/29 17:51:36      7s] Create and set the environment variable TMPDIR to /tmp/innovus_temp_8355_lab2-33.eng.utah.edu_karmondy_hfUINr.
+
+[11/29 17:51:36      7s] Change the soft stacksize limit to 0.2%RAM (47 mbytes). Set global soft_stack_size_limit to change the value.
+[11/29 17:51:37      7s] 
+[11/29 17:51:37      7s] **INFO:  MMMC transition support version v31-84 
+[11/29 17:51:37      7s] 
+[11/29 17:51:37      7s] <CMD> set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+[11/29 17:51:37      7s] <CMD> suppressMessage ENCEXT-2799
+[11/29 17:51:37      7s] <CMD> getDrawView
+[11/29 17:51:37      7s] <CMD> loadWorkspace -name Physical
+[11/29 17:51:37      7s] <CMD> win
+[11/29 17:51:53      8s] 
+[11/29 17:51:53      8s] *** Memory Usage v#1 (Current mem = 482.289M, initial mem = 179.676M) ***
+[11/29 17:51:53      8s] *** Message Summary: 0 warning(s), 0 error(s)
+[11/29 17:51:53      8s] 
+[11/29 17:51:53      8s] --- Ending "Innovus" (totcpu=0:00:09.0, real=0:00:26.0, mem=482.3M) ---

@@ -1,0 +1,55 @@
+*** Statistics for net list snake_top_top ***
+Number of cells      = 28355
+Number of nets       = 7959
+Number of tri-nets   = 0
+Number of degen nets = 8
+Number of pins       = 23956
+Number of i/os       = 33
+
+Number of nets with    1 terms = 8 (0.1%)
+Number of nets with    2 terms = 5816 (73.1%)
+Number of nets with    3 terms = 1096 (13.8%)
+Number of nets with    4 terms = 234 (2.9%)
+Number of nets with    5 terms = 183 (2.3%)
+Number of nets with    6 terms = 119 (1.5%)
+Number of nets with    7 terms = 108 (1.4%)
+Number of nets with    8 terms = 73 (0.9%)
+Number of nets with    9 terms = 53 (0.7%)
+Number of nets with >=10 terms = 269 (3.4%)
+
+*** 34 Primitives used:
+Primitive pad_vdd (1 insts)
+Primitive pad_out (27 insts)
+Primitive pad_in (6 insts)
+Primitive pad_gnd (1 insts)
+Primitive pad_fill_8 (14 insts)
+Primitive pad_fill_32 (8 insts)
+Primitive pad_fill_2 (4 insts)
+Primitive pad_fill_16 (4 insts)
+Primitive pad_fill_1 (10 insts)
+Primitive pad_corner (4 insts)
+Primitive XOR2X1 (103 insts)
+Primitive TIE1 (1 insts)
+Primitive TIE0 (2 insts)
+Primitive OR2X1 (88 insts)
+Primitive NOR2X1 (629 insts)
+Primitive NAND3X1 (690 insts)
+Primitive NAND2X1 (4298 insts)
+Primitive MUX2X1 (28 insts)
+Primitive INVX4 (67 insts)
+Primitive INVX32 (27 insts)
+Primitive INVX2 (258 insts)
+Primitive INVX16 (27 insts)
+Primitive INVX1 (39 insts)
+Primitive FILL8 (672 insts)
+Primitive FILL4 (2450 insts)
+Primitive FILL32 (7960 insts)
+Primitive FILL2 (4686 insts)
+Primitive FILL16 (367 insts)
+Primitive FILL1 (4231 insts)
+Primitive DFFQX1 (674 insts)
+Primitive DFFQQBX1 (6 insts)
+Primitive DFFQBX1 (54 insts)
+Primitive BUFX1 (165 insts)
+Primitive AND2X1 (754 insts)
+************

@@ -1,0 +1,83 @@
+ 
+****************************************
+Report : area
+Design : snake_top
+Version: K-2015.06-SP5-6
+Date   : Thu Nov 29 18:44:42 2018
+****************************************
+
+Library(s) Used:
+
+    sclib_tsmc180_tt (File: /research/ece/lnis-teaching/Designkits/tsmc180nm/full_custom_lib/lib/sclib_tsmc180_tt_nldm.db)
+
+Number of ports:                         3911
+Number of nets:                         70054
+Number of cells:                        66210
+Number of combinational cells:          63743
+Number of sequential cells:              2457
+Number of macros/black boxes:               0
+Number of buf/inv:                       5039
+Number of references:                      13
+
+Combinational area:             838393.873064
+Buf/Inv area:                    42343.723297
+Noncombinational area:          131040.975578
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (No wire load specified)
+
+Total cell area:                969434.848642
+Total area:                 undefined
+
+Information: This design contains unmapped logic. (RPT-7)
+
+Hierarchical area distribution
+------------------------------
+
+                                  Global cell area              Local cell area
+                                  --------------------  -------------------------------- 
+Hierarchical cell                 Absolute     Percent  Combi-       Noncombi-    Black-
+                                  Total        Total    national     national     boxes   Design
+--------------------------------  -----------  -------  -----------  -----------  ------  --------------------
+snake_top                         969434.8486    100.0     644.4016    1206.1056  0.0000  snake_top
+add_27                               924.1064      0.1     924.1064       0.0000  0.0000  snake_top_DW01_inc_0
+mem                                67333.8841      6.9   39948.7595   25589.7598  0.0000  memory
+mem/add_244_S2                       535.8240      0.1     535.8240       0.0000  0.0000  memory_DW01_add_0
+mem/add_249                          508.3056      0.1     508.3056       0.0000  0.0000  memory_DW01_add_2
+mem/mult_244_S2                      375.6176      0.0     375.6176       0.0000  0.0000  memory_DW02_mult_0
+mem/mult_249                         375.6176      0.0     375.6176       0.0000  0.0000  memory_DW02_mult_1
+s                                 842800.1410     86.9  742819.2068   99980.9342  0.0000  Snake
+sw                                 51753.1732      5.3   50237.8972    1515.2760  0.0000  snakeWriter
+vga_c                               4773.0368      0.5     751.7560    1649.3400  0.0000  VGAController
+vga_c/vga_module                    2371.9408      0.2    1272.3808    1099.5600  0.0000  VGA
+--------------------------------  -----------  -------  -----------  -----------  ------  --------------------
+Total                                                   838393.8731  131040.9756  0.0000
+
+
+Area of detected synthetic parts
+--------------------------------
+                                       Perc. of
+  Module    Implem.  Count       Area cell area
+  --------- -------  ----- ---------- ---------
+  DW01_add      rpl      2  1044.1296      0.1%
+  DW01_inc      rpl      1   924.1068      0.1%
+  DW02_mult     csa      2   751.2352      0.1%
+  --------- -------  ----- ---------- ---------
+  Total:                 5  2719.4716      0.3%
+
+Estimated area of ungrouped synthetic parts
+-------------------------------------------
+                            Estimated  Perc. of
+  Module    Implem.  Count       Area cell area
+  --------- -------  ----- ---------- ---------
+  DW01_add      rpl      2   700.9365      0.1%
+  DW01_cmp2     rpl      8  1183.4497      0.1%
+  DW01_cmp6     rpl      4   705.7883      0.1%
+  DW01_dec      rpl      2   230.9350      0.0%
+  DW01_inc      rpl      6  1234.5519      0.1%
+  DW01_sub      rpl      1   198.7976      0.0%
+  --------- -------  ----- ---------- ---------
+  Total:                23  4254.4591      0.4%
+
+Total synthetic cell area:              6973.9306  0.7%  (estimated)
+
+1
