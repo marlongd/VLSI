@@ -56506,14 +56506,6 @@ module snake_top_top (
    pad_gnd pad_gnd0 (
 	.VSS(VSS), 
 	.VDD(VDD));
-   pad_corner corner0 (
-);
-   pad_corner corner1 (
-);
-   pad_corner corner2 (
-);
-   pad_corner corner3 (
-);
    pad_in pad_clk_in (
 	.DataIn(clk_pad),
 	.pad(clk), 

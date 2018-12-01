@@ -1,6 +1,6 @@
 # place_route.tcl
 
-set design		snake_top
+set design		snake_top_top
 set rpt_dir		./RPT
 set max_route_layer		5
 set pwr_net 		VDD
@@ -357,17 +357,14 @@ proc verify_design {} {
 
    put_header "Verifying design..."
 
-encounter> globalNetConnect VDD -type pgpin -pin VDD -inst *
-encounter> globalNetConnect VSS -type pgpin -pin VSS -inst *
-encounter> applyGlobalNets 
 
    verifyConnectivity -type all -report ${rpt_dir}/connectivity.rpt
 
    setVerifyGeometryMode -regRoutingOnly true -error 100000
    verifyGeometry -report ${rpt_dir}/geometry.rpt
 
-   #verifyProcessAntenna -report ${rpt_dir}/antenna.rpt
-   #addDiode $antenna_rpt_file $antenna_cell
+   verifyProcessAntenna -report ${rpt_dir}/antenna.rpt
+   addDiode $antenna_rpt_file $antenna_cell
 }
 
 #=========================================================================================

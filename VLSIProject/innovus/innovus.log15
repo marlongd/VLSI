@@ -1,0 +1,768 @@
+
+Cadence Innovus(TM) Implementation System.
+Copyright 2017 Cadence Design Systems, Inc. All rights reserved worldwide.
+
+Version:	v17.11-s080_1, built Fri Aug 4 11:13:11 PDT 2017
+Options:	
+Date:		Fri Nov 30 21:27:42 2018
+Host:		lab2-33.eng.utah.edu (x86_64 w/Linux 3.10.0-862.14.4.el7.x86_64) (4cores*8cpus*Intel(R) Core(TM) i7-4790 CPU @ 3.60GHz 8192KB)
+OS:		Red Hat Enterprise Linux Server release 7.5 (Maipo)
+
+License:
+		invs	Innovus Implementation System	17.1	checkout succeeded
+		8 CPU jobs allowed with the current license(s). Use setMultiCpuUsage to set your required CPU count.
+Change the soft stacksize limit to 0.2%RAM (47 mbytes). Set global soft_stack_size_limit to change the value.
+
+**INFO:  MMMC transition support version v31-84 
+
+<CMD> set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+<CMD> suppressMessage ENCEXT-2799
+<CMD> getDrawView
+<CMD> loadWorkspace -name Physical
+<CMD> win
+<CMD> set init_design_uniquify 1
+<CMD> set init_gnd_net VSS
+<CMD> set init_pwr_net VDD
+<CMD> set init_top_cell snake_top_top
+<CMD> set init_verilog ../HDL/GATE/snake_top_mapped.v
+<CMD> set init_lef_file {/research/ece/lnis-teaching/Designkits/tsmc180nm/full_custom_lib/lef/tech.lef /research/ece/lnis-teaching/Designkits/tsmc180nm/full_custom_lib/lef/sclib_tsmc180.lef /research/ece/lnis-teaching/Designkits/tsmc180nm/full_custom_lib/lef/padlib_tsmc180.lef}
+<CMD> set init_mmmc_file CONF/design.view
+<CMD> init_design
+#% Begin Load MMMC data ... (date=11/30 21:28:31, mem=458.9M)
+#% End Load MMMC data ... (date=11/30 21:28:31, total cpu=0:00:00.0, real=0:00:00.0, peak res=458.9M, current mem=455.4M)
+wc bc
+
+Loading LEF file /research/ece/lnis-teaching/Designkits/tsmc180nm/full_custom_lib/lef/tech.lef ...
+
+Loading LEF file /research/ece/lnis-teaching/Designkits/tsmc180nm/full_custom_lib/lef/sclib_tsmc180.lef ...
+Set DBUPerIGU to M2 pitch 1120.
+
+Loading LEF file /research/ece/lnis-teaching/Designkits/tsmc180nm/full_custom_lib/lef/padlib_tsmc180.lef ...
+**WARN: (IMPLF-200):	Pin 'DataOut' in macro 'pad_out' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+**WARN: (IMPLF-201):	Pin 'pad' in macro 'pad_out' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-200):	Pin 'pad' in macro 'pad_out' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+**WARN: (IMPLF-201):	Pin 'DataIn' in macro 'pad_in' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-201):	Pin 'pad' in macro 'pad_in' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-200):	Pin 'pad' in macro 'pad_in' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+**WARN: (IMPLF-201):	Pin 'DataIn' in macro 'pad_bidirhe' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-200):	Pin 'DataOut' in macro 'pad_bidirhe' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+**WARN: (IMPLF-200):	Pin 'EN' in macro 'pad_bidirhe' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+**WARN: (IMPLF-201):	Pin 'pad' in macro 'pad_bidirhe' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-200):	Pin 'pad' in macro 'pad_bidirhe' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+**WARN: (IMPLF-201):	Pin 'pad' in macro 'pad_ana' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-200):	Pin 'pad' in macro 'pad_ana' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+**WARN: (IMPLF-201):	Pin 'Z' in macro 'XOR2X1' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-200):	Pin 'B' in macro 'XOR2X1' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+**WARN: (IMPLF-200):	Pin 'A' in macro 'XOR2X1' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+**WARN: (IMPLF-201):	Pin 'Z' in macro 'TIE1' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-201):	Pin 'Z' in macro 'TIE0' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-201):	Pin 'Z' in macro 'OR2X1' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-200):	Pin 'B' in macro 'OR2X1' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+**WARN: (IMPLF-200):	Pin 'A' in macro 'OR2X1' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+**WARN: (IMPLF-201):	Pin 'Z' in macro 'NOR2X1' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-200):	Pin 'B' in macro 'NOR2X1' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+**WARN: (IMPLF-200):	Pin 'A' in macro 'NOR2X1' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+**WARN: (IMPLF-200):	Pin 'A' in macro 'NAND3X1' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+**WARN: (IMPLF-201):	Pin 'Z' in macro 'NAND3X1' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-200):	Pin 'C' in macro 'NAND3X1' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+**WARN: (IMPLF-200):	Pin 'B' in macro 'NAND3X1' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+**WARN: (IMPLF-201):	Pin 'Z' in macro 'NAND2X1' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-200):	Pin 'B' in macro 'NAND2X1' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+**WARN: (IMPLF-200):	Pin 'A' in macro 'NAND2X1' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+**WARN: (IMPLF-201):	Pin 'Z' in macro 'MUX2X1' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-200):	Pin 'S' in macro 'MUX2X1' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+**WARN: (IMPLF-200):	Pin 'B' in macro 'MUX2X1' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+**WARN: (EMS-27):	Message (IMPLF-200) has exceeded the current message display limit of 20.
+To increase the message display limit, refer to the product command reference manual.
+**WARN: (IMPLF-201):	Pin 'Z' in macro 'INVX8' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-201):	Pin 'Z' in macro 'INVX4' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-201):	Pin 'Z' in macro 'INVX32' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-201):	Pin 'Z' in macro 'INVX2' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-201):	Pin 'Z' in macro 'INVX16' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-201):	Pin 'Z' in macro 'INVX1' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (EMS-27):	Message (IMPLF-201) has exceeded the current message display limit of 20.
+To increase the message display limit, refer to the product command reference manual.
+
+viaInitial starts at Fri Nov 30 21:28:31 2018
+viaInitial ends at Fri Nov 30 21:28:31 2018
+Loading view definition file from CONF/design.view
+Reading wc timing library '/research/ece/lnis-teaching/Designkits/tsmc180nm/full_custom_lib/lib/sclib_tsmc180_ss_nldm.lib' ...
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Z' of cell 'AND2X1' is not defined in the library. (File /research/ece/lnis-teaching/Designkits/tsmc180nm/full_custom_lib/lib/sclib_tsmc180_ss_nldm.lib)
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Z' of cell 'BUFX1' is not defined in the library. (File /research/ece/lnis-teaching/Designkits/tsmc180nm/full_custom_lib/lib/sclib_tsmc180_ss_nldm.lib)
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'QB' of cell 'DFFQBX1' is not defined in the library. (File /research/ece/lnis-teaching/Designkits/tsmc180nm/full_custom_lib/lib/sclib_tsmc180_ss_nldm.lib)
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'DFFQQBX1' is not defined in the library. (File /research/ece/lnis-teaching/Designkits/tsmc180nm/full_custom_lib/lib/sclib_tsmc180_ss_nldm.lib)
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'QB' of cell 'DFFQQBX1' is not defined in the library. (File /research/ece/lnis-teaching/Designkits/tsmc180nm/full_custom_lib/lib/sclib_tsmc180_ss_nldm.lib)
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'DFFQSRX1' is not defined in the library. (File /research/ece/lnis-teaching/Designkits/tsmc180nm/full_custom_lib/lib/sclib_tsmc180_ss_nldm.lib)
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'DFFQX1' is not defined in the library. (File /research/ece/lnis-teaching/Designkits/tsmc180nm/full_custom_lib/lib/sclib_tsmc180_ss_nldm.lib)
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Z' of cell 'INVX1' is not defined in the library. (File /research/ece/lnis-teaching/Designkits/tsmc180nm/full_custom_lib/lib/sclib_tsmc180_ss_nldm.lib)
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Z' of cell 'INVX16' is not defined in the library. (File /research/ece/lnis-teaching/Designkits/tsmc180nm/full_custom_lib/lib/sclib_tsmc180_ss_nldm.lib)
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Z' of cell 'INVX2' is not defined in the library. (File /research/ece/lnis-teaching/Designkits/tsmc180nm/full_custom_lib/lib/sclib_tsmc180_ss_nldm.lib)
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Z' of cell 'INVX32' is not defined in the library. (File /research/ece/lnis-teaching/Designkits/tsmc180nm/full_custom_lib/lib/sclib_tsmc180_ss_nldm.lib)
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Z' of cell 'INVX4' is not defined in the library. (File /research/ece/lnis-teaching/Designkits/tsmc180nm/full_custom_lib/lib/sclib_tsmc180_ss_nldm.lib)
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Z' of cell 'INVX8' is not defined in the library. (File /research/ece/lnis-teaching/Designkits/tsmc180nm/full_custom_lib/lib/sclib_tsmc180_ss_nldm.lib)
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Z' of cell 'MUX2X1' is not defined in the library. (File /research/ece/lnis-teaching/Designkits/tsmc180nm/full_custom_lib/lib/sclib_tsmc180_ss_nldm.lib)
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Z' of cell 'NAND2X1' is not defined in the library. (File /research/ece/lnis-teaching/Designkits/tsmc180nm/full_custom_lib/lib/sclib_tsmc180_ss_nldm.lib)
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Z' of cell 'NAND3X1' is not defined in the library. (File /research/ece/lnis-teaching/Designkits/tsmc180nm/full_custom_lib/lib/sclib_tsmc180_ss_nldm.lib)
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Z' of cell 'NOR2X1' is not defined in the library. (File /research/ece/lnis-teaching/Designkits/tsmc180nm/full_custom_lib/lib/sclib_tsmc180_ss_nldm.lib)
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Z' of cell 'OR2X1' is not defined in the library. (File /research/ece/lnis-teaching/Designkits/tsmc180nm/full_custom_lib/lib/sclib_tsmc180_ss_nldm.lib)
+**WARN: (TECHLIB-436):	Attribute 'max_capacitance' on 'output/inout' pin 'Z' of cell 'TIE0' is not defined in the library. (File /research/ece/lnis-teaching/Designkits/tsmc180nm/full_custom_lib/lib/sclib_tsmc180_ss_nldm.lib)
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Z' of cell 'TIE0' is not defined in the library. (File /research/ece/lnis-teaching/Designkits/tsmc180nm/full_custom_lib/lib/sclib_tsmc180_ss_nldm.lib)
+Message <TECHLIB-436> has exceeded the message display limit of '20'. Use 'set_message -no_limit -id list_of_msgIDs' to reset the message limit.
+**WARN: (TECHLIB-302):	No function defined for cell 'ANTENNA'. The cell will only be used for analysis. (File /research/ece/lnis-teaching/Designkits/tsmc180nm/full_custom_lib/lib/sclib_tsmc180_ss_nldm.lib)
+Read 21 cells in library 'sclib_tsmc180_ss' 
+Reading wc timing library '/research/ece/lnis-teaching/Designkits/tsmc180nm/full_custom_lib/lib/padlib_tsmc180_ss_nldm.lib' ...
+**WARN: (TECHLIB-302):	No function defined for cell 'pad_vdd'. The cell will only be used for analysis. (File /research/ece/lnis-teaching/Designkits/tsmc180nm/full_custom_lib/lib/padlib_tsmc180_ss_nldm.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'pad_gnd'. The cell will only be used for analysis. (File /research/ece/lnis-teaching/Designkits/tsmc180nm/full_custom_lib/lib/padlib_tsmc180_ss_nldm.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'pad_ana'. The cell will only be used for analysis. (File /research/ece/lnis-teaching/Designkits/tsmc180nm/full_custom_lib/lib/padlib_tsmc180_ss_nldm.lib)
+Read 6 cells in library 'padlib_tsmc180_ss' 
+Reading bc timing library '/research/ece/lnis-teaching/Designkits/tsmc180nm/full_custom_lib/lib/sclib_tsmc180_ff_nldm.lib' ...
+**WARN: (TECHLIB-302):	No function defined for cell 'ANTENNA'. The cell will only be used for analysis. (File /research/ece/lnis-teaching/Designkits/tsmc180nm/full_custom_lib/lib/sclib_tsmc180_ff_nldm.lib)
+Read 21 cells in library 'sclib_tsmc180_ff' 
+Reading bc timing library '/research/ece/lnis-teaching/Designkits/tsmc180nm/full_custom_lib/lib/padlib_tsmc180_ff_nldm.lib' ...
+**WARN: (TECHLIB-302):	No function defined for cell 'pad_vdd'. The cell will only be used for analysis. (File /research/ece/lnis-teaching/Designkits/tsmc180nm/full_custom_lib/lib/padlib_tsmc180_ff_nldm.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'pad_gnd'. The cell will only be used for analysis. (File /research/ece/lnis-teaching/Designkits/tsmc180nm/full_custom_lib/lib/padlib_tsmc180_ff_nldm.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'pad_ana'. The cell will only be used for analysis. (File /research/ece/lnis-teaching/Designkits/tsmc180nm/full_custom_lib/lib/padlib_tsmc180_ff_nldm.lib)
+Read 6 cells in library 'padlib_tsmc180_ff' 
+*** End library_loading (cpu=0.00min, real=0.00min, mem=9.5M, fe_cpu=0.18min, fe_real=0.82min, fe_mem=511.5M) ***
+#% Begin Load netlist data ... (date=11/30 21:28:31, mem=492.6M)
+*** Begin netlist parsing (mem=511.5M) ***
+Created 27 new cells from 4 timing libraries.
+Reading netlist ...
+Backslashed names will retain backslash and a trailing blank character.
+Reading verilog netlist '../HDL/GATE/snake_top_mapped.v'
+**WARN: (IMPVL-346):	Module '\**FFGEN** ' is instantiated in the netlist, but is not defined in the LEF files.  Since there is no real cell definition for such a cell, it will be treated as an empty module.
+Type 'man IMPVL-346' for more detail.
+
+*** Memory Usage v#1 (Current mem = 514.500M, initial mem = 179.676M) ***
+*** End netlist parsing (cpu=0:00:00.0, real=0:00:00.0, mem=514.5M) ***
+#% End Load netlist data ... (date=11/30 21:28:31, total cpu=0:00:00.1, real=0:00:00.0, peak res=492.6M, current mem=472.5M)
+Set top cell to snake_top_top.
+Hooked 54 DB cells to tlib cells.
+**WARN: (IMPDB-2504):	Cell '\**FFGEN** ' is instantiated in the Verilog netlist, but it is not defined in the library or design data.  Its pin directions may be derived incorrectly.  Provide the cell definition or its pin information in the library or design data and reload the design to avoid potential issues.
+1 empty module found.
+Starting recursive module instantiation check.
+No recursion found.
+Term dir updated for 0 vinsts of 1 cells.
+Building hierarchical netlist for Cell snake_top_top ...
+*** Netlist is NOT unique.
+** info: there are 83 modules.
+** info: there are 7785 stdCell insts.
+** info: there are 39 Pad insts.
+
+*** Memory Usage v#1 (Current mem = 548.922M, initial mem = 179.676M) ***
+Initializing I/O assignment ...
+Adjusting Core to Left to: 0.3200. Core to Bottom to: 0.3200.
+**WARN: (IMPFP-3961):	The techSite 'corner' has no related standard cells in LEF/OA library. Cannot make calculations for this site type unless standard cell models of this type exist in the LEF/OA library. If the SITE is not used by the library you can ignore this warning or remove the SITE definition from the LEF/OA to avoid this message.
+Type 'man IMPFP-3961' for more detail.
+**WARN: (IMPFP-3961):	The techSite 'pad' has no related standard cells in LEF/OA library. Cannot make calculations for this site type unless standard cell models of this type exist in the LEF/OA library. If the SITE is not used by the library you can ignore this warning or remove the SITE definition from the LEF/OA to avoid this message.
+Type 'man IMPFP-3961' for more detail.
+Generated pitch 1.12 in METAL6 is different from 0.9 defined in technology file in preferred direction.
+Set Default Net Delay as 1000 ps.
+Set Default Net Load as 0.5 pF. 
+Set Default Input Pin Transition as 0.1 ps.
+*Info: initialize multi-corner CTS.
+Reading timing constraints file '../synopsys_dc/SDC/snake_top_mapped.sdc' ...
+Current (total cpu=0:00:11.3, real=0:00:49.0, peak res=605.3M, current mem=605.3M)
+INFO (CTE): Constraints read successfully.
+WARNING (CTE-25): Line: 9 of File ../synopsys_dc/SDC/snake_top_mapped.sdc : Skipped unsupported command: set_max_area
+
+
+WARNING (CTE-25): Line: 8 of File ../synopsys_dc/SDC/snake_top_mapped.sdc : Skipped unsupported command: set_units
+
+
+Ending "Constraint file reading stats" (total cpu=0:00:00.0, real=0:00:00.0, peak res=612.5M, current mem=612.5M)
+Current (total cpu=0:00:11.3, real=0:00:49.0, peak res=612.5M, current mem=612.5M)
+Total number of combinational cells: 17
+Total number of sequential cells: 4
+Total number of tristate cells: 0
+Total number of level shifter cells: 0
+Total number of power gating cells: 0
+Total number of isolation cells: 0
+Total number of power switch cells: 0
+Total number of pulse generator cells: 0
+Total number of always on buffers: 0
+Total number of retention cells: 0
+List of usable buffers: BUFX1
+Total number of usable buffers: 1
+List of unusable buffers:
+Total number of unusable buffers: 0
+List of usable inverters: INVX2 INVX1 INVX16 INVX32 INVX4 INVX8
+Total number of usable inverters: 6
+List of unusable inverters:
+Total number of unusable inverters: 0
+List of identified usable delay cells:
+Total number of identified usable delay cells: 0
+List of identified unusable delay cells:
+Total number of identified unusable delay cells: 0
+No delay cells were detected in the set of buffers. Buffers will be used to fix hold violations.
+**WARN: (IMPSYC-2):	Timing information is not defined for cell pad_corner; Check the timing library (.lib) file and make sure the timing information exists for the cell and you can run the checkTimingLibrary command to verify if the timing library has complete information after the design is loaded.
+Type 'man IMPSYC-2' for more detail.
+Extraction setup Started 
+Initializing multi-corner RC extraction with 2 active RC Corners ...
+Reading Capacitance Table File /research/ece/lnis-teaching/5710_6710/DesignKit/backend/stclib/7-track/tcb018gbwp7t_290a_FE/sef/techfiles/captable/t018lo_1p6m_typical.captable ...
+Reading Capacitance Table File /research/ece/lnis-teaching/5710_6710/DesignKit/backend/stclib/7-track/tcb018gbwp7t_290a_FE/sef/techfiles/captable/t018lo_1p6m_typical.captable ...
+Importing multi-corner RC tables ... 
+Summary of Active RC-Corners : 
+ 
+ Analysis View: wc
+    RC-Corner Name        : wc
+    RC-Corner Index       : 0
+    RC-Corner Temperature : 25 Celsius
+    RC-Corner Cap Table   : '/research/ece/lnis-teaching/5710_6710/DesignKit/backend/stclib/7-track/tcb018gbwp7t_290a_FE/sef/techfiles/captable/t018lo_1p6m_typical.captable'
+    RC-Corner PreRoute Res Factor         : 1
+    RC-Corner PreRoute Cap Factor         : 1
+    RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+    RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+    RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+    RC-Corner PreRoute Clock Res Factor   : 1	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel low)]
+ 
+ Analysis View: bc
+    RC-Corner Name        : bc
+    RC-Corner Index       : 1
+    RC-Corner Temperature : 25 Celsius
+    RC-Corner Cap Table   : '/research/ece/lnis-teaching/5710_6710/DesignKit/backend/stclib/7-track/tcb018gbwp7t_290a_FE/sef/techfiles/captable/t018lo_1p6m_typical.captable'
+    RC-Corner PreRoute Res Factor         : 1
+    RC-Corner PreRoute Cap Factor         : 1
+    RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+    RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+    RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+    RC-Corner PreRoute Clock Res Factor   : 1	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel low)]
+
+*** Summary of all messages that are not suppressed in this session:
+Severity  ID               Count  Summary                                  
+WARNING   IMPLF-200           41  Pin '%s' in macro '%s' has no ANTENNAGAT...
+WARNING   IMPLF-201           27  Pin '%s' in macro '%s' has no ANTENNADIF...
+WARNING   IMPFP-3961           2  The techSite '%s' has no related standar...
+WARNING   IMPSYC-2             1  Timing information is not defined for ce...
+WARNING   IMPVL-346            1  Module '%s' is instantiated in the netli...
+WARNING   IMPDB-2504           1  Cell '%s' is instantiated in the Verilog...
+WARNING   TECHLIB-302          8  No function defined for cell '%s'. The c...
+WARNING   TECHLIB-436         20  Attribute '%s' on '%s' pin '%s' of cell ...
+*** Message Summary: 101 warning(s), 0 error(s)
+
+<CMD> pan 65.992 136.108
+<CMD> pan 11.497 5.601
+<CMD> pan 0.640 0.162
+<CMD> pan 0.009 -0.012
+<CMD> pan 0.001 -0.001
+<CMD> pan 1562.193 161.314
+<CMD> pan -744.139 -34.959
+<CMD> pan 179.493 -223.812
+<CMD> floorPlan -site core7T -r 1.0 0.25 12 12 12 12
+Adjusting Core to Left to: 12.6400. Core to Bottom to: 12.6400.
+Generated pitch 1.12 in METAL6 is different from 0.9 defined in technology file in preferred direction.
+**WARN: (IMPFP-325):	Floorplan of the design is resized. All current floorplan objects are automatically derived based on specified new floorplan. This may change blocks, fixed standard cells, existing routes and blockages.
+<CMD> fit
+<CMD> saveDesign DBS/snake_top_top-fplan.enc
+#% Begin save design ... (date=11/30 21:29:16, mem=718.4M)
+% Begin Save netlist data ... (date=11/30 21:29:16, mem=718.9M)
+Writing Binary DB to DBS/snake_top_top-fplan.enc.dat.tmp/snake_top_top.v.bin in single-threaded mode...
+% End Save netlist data ... (date=11/30 21:29:16, total cpu=0:00:00.0, real=0:00:00.0, peak res=721.2M, current mem=721.2M)
+% Begin Save AAE data ... (date=11/30 21:29:16, mem=721.2M)
+Saving AAE Data ...
+% End Save AAE data ... (date=11/30 21:29:16, total cpu=0:00:00.0, real=0:00:00.0, peak res=721.2M, current mem=721.2M)
+% Begin Save clock tree data ... (date=11/30 21:29:16, mem=721.7M)
+% End Save clock tree data ... (date=11/30 21:29:16, total cpu=0:00:00.0, real=0:00:00.0, peak res=721.7M, current mem=721.7M)
+Saving preference file DBS/snake_top_top-fplan.enc.dat.tmp/gui.pref.tcl ...
+Saving mode setting ...
+Saving global file ...
+% Begin Save floorplan data ... (date=11/30 21:29:16, mem=722.5M)
+Saving floorplan file ...
+% End Save floorplan data ... (date=11/30 21:29:16, total cpu=0:00:00.0, real=0:00:00.0, peak res=722.5M, current mem=722.5M)
+Saving Drc markers ...
+... No Drc file written since there is no markers found.
+% Begin Save placement data ... (date=11/30 21:29:16, mem=722.6M)
+** Saving stdCellPlacement_binary (version# 1) ...
+% End Save placement data ... (date=11/30 21:29:16, total cpu=0:00:00.0, real=0:00:00.0, peak res=722.7M, current mem=722.7M)
+% Begin Save routing data ... (date=11/30 21:29:16, mem=722.7M)
+Saving route file ...
+*** Completed saveRoute (cpu=0:00:00.0 real=0:00:00.0 mem=819.3M) ***
+% End Save routing data ... (date=11/30 21:29:16, total cpu=0:00:00.0, real=0:00:00.0, peak res=723.1M, current mem=723.1M)
+Saving property file DBS/snake_top_top-fplan.enc.dat.tmp/snake_top_top.prop
+*** Completed saveProperty (cpu=0:00:00.0 real=0:00:00.0 mem=819.3M) ***
+% Begin Save power constraints data ... (date=11/30 21:29:16, mem=725.4M)
+% End Save power constraints data ... (date=11/30 21:29:16, total cpu=0:00:00.0, real=0:00:00.0, peak res=725.5M, current mem=725.5M)
+wc bc
+Generated self-contained design snake_top_top-fplan.enc.dat.tmp
+#% End save design ... (date=11/30 21:29:17, total cpu=0:00:00.2, real=0:00:01.0, peak res=725.5M, current mem=725.5M)
+*** Message Summary: 0 warning(s), 0 error(s)
+
+<CMD> globalNetConnect VDD -type pgpin -pin VDD -all -verbose
+7820 new pwr-pin connections were made to global net 'VDD'.
+<CMD> globalNetConnect VSS -type pgpin -pin VSS -all -verbose
+7820 new gnd-pin connections were made to global net 'VSS'.
+<CMD> globalNetConnect VDD -type tiehi
+<CMD> globalNetConnect VSS -type tielo
+<CMD> loadIoFile SCRIPTS/place_io.io
+Reading IO assignment file "SCRIPTS/place_io.io" ...
+<CMD> addIoFiller -cell pad_fill_32 -prefix FILLER -side n
+Added 8 of filler cell 'pad_fill_32' on top side.
+<CMD> addIoFiller -cell pad_fill_16 -prefix FILLER -side n
+Added 4 of filler cell 'pad_fill_16' on top side.
+<CMD> addIoFiller -cell pad_fill_8 -prefix FILLER -side n
+Added 4 of filler cell 'pad_fill_8' on top side.
+<CMD> addIoFiller -cell pad_fill_4 -prefix FILLER -side n
+Added 0 of filler cell 'pad_fill_4' on top side.
+<CMD> addIoFiller -cell pad_fill_2 -prefix FILLER -side n
+Added 4 of filler cell 'pad_fill_2' on top side.
+<CMD> addIoFiller -cell pad_fill_1 -prefix FILLER -side n
+Added 0 of filler cell 'pad_fill_1' on top side.
+<CMD> addIoFiller -cell pad_fill_01 -prefix FILLER -side n
+Added 0 of filler cell 'pad_fill_01' on top side.
+<CMD> addIoFiller -cell pad_fill_005 -prefix FILLER -side n -fillAnyGap
+Added 0 of filler cell 'pad_fill_005' on top side.
+<CMD> addIoFiller -cell pad_fill_32 -prefix FILLER -side s
+Added 0 of filler cell 'pad_fill_32' on bottom side.
+<CMD> addIoFiller -cell pad_fill_16 -prefix FILLER -side s
+Added 0 of filler cell 'pad_fill_16' on bottom side.
+<CMD> addIoFiller -cell pad_fill_8 -prefix FILLER -side s
+Added 0 of filler cell 'pad_fill_8' on bottom side.
+<CMD> addIoFiller -cell pad_fill_4 -prefix FILLER -side s
+Added 0 of filler cell 'pad_fill_4' on bottom side.
+<CMD> addIoFiller -cell pad_fill_2 -prefix FILLER -side s
+Added 0 of filler cell 'pad_fill_2' on bottom side.
+<CMD> addIoFiller -cell pad_fill_1 -prefix FILLER -side s
+Added 0 of filler cell 'pad_fill_1' on bottom side.
+<CMD> addIoFiller -cell pad_fill_01 -prefix FILLER -side s
+Added 0 of filler cell 'pad_fill_01' on bottom side.
+<CMD> addIoFiller -cell pad_fill_005 -prefix FILLER -side s -fillAnyGap
+Added 0 of filler cell 'pad_fill_005' on bottom side.
+<CMD> addIoFiller -cell pad_fill_32 -prefix FILLER -side e
+Added 0 of filler cell 'pad_fill_32' on right side.
+<CMD> addIoFiller -cell pad_fill_16 -prefix FILLER -side e
+Added 0 of filler cell 'pad_fill_16' on right side.
+<CMD> addIoFiller -cell pad_fill_8 -prefix FILLER -side e
+Added 0 of filler cell 'pad_fill_8' on right side.
+<CMD> addIoFiller -cell pad_fill_4 -prefix FILLER -side e
+Added 0 of filler cell 'pad_fill_4' on right side.
+<CMD> addIoFiller -cell pad_fill_2 -prefix FILLER -side e
+Added 0 of filler cell 'pad_fill_2' on right side.
+<CMD> addIoFiller -cell pad_fill_1 -prefix FILLER -side e
+Added 0 of filler cell 'pad_fill_1' on right side.
+<CMD> addIoFiller -cell pad_fill_01 -prefix FILLER -side e
+Added 0 of filler cell 'pad_fill_01' on right side.
+<CMD> addIoFiller -cell pad_fill_005 -prefix FILLER -side e -fillAnyGap
+Added 0 of filler cell 'pad_fill_005' on right side.
+<CMD> addIoFiller -cell pad_fill_32 -prefix FILLER -side w
+Added 0 of filler cell 'pad_fill_32' on left side.
+<CMD> addIoFiller -cell pad_fill_16 -prefix FILLER -side w
+Added 0 of filler cell 'pad_fill_16' on left side.
+<CMD> addIoFiller -cell pad_fill_8 -prefix FILLER -side w
+Added 10 of filler cell 'pad_fill_8' on left side.
+<CMD> addIoFiller -cell pad_fill_4 -prefix FILLER -side w
+Added 0 of filler cell 'pad_fill_4' on left side.
+<CMD> addIoFiller -cell pad_fill_2 -prefix FILLER -side w
+Added 0 of filler cell 'pad_fill_2' on left side.
+<CMD> addIoFiller -cell pad_fill_1 -prefix FILLER -side w
+Added 10 of filler cell 'pad_fill_1' on left side.
+<CMD> addIoFiller -cell pad_fill_01 -prefix FILLER -side w
+Added 0 of filler cell 'pad_fill_01' on left side.
+<CMD> addIoFiller -cell pad_fill_005 -prefix FILLER -side w -fillAnyGap
+Added 0 of filler cell 'pad_fill_005' on left side.
+<CMD> deleteAllPowerPreroutes
+<CMD> addRing -type core_rings -follow core -nets {VSS VDD} -center 1 -width 3.0 -spacing 2 -layer {top METAL1 bottom METAL1 left METAL2 right METAL2} -extend_corner {} -jog_distance 0 -snap_wire_center_to_grid None -threshold 0
+
+Ring generation is complete.
+vias are now being generated.
+addRing created 8 wires.
+ViaGen created 8 vias, deleted 0 via to avoid violation.
++--------+----------------+----------------+
+|  Layer |     Created    |     Deleted    |
++--------+----------------+----------------+
+| METAL1 |        4       |       NA       |
+|  VIA12 |        8       |        0       |
+| METAL2 |        4       |       NA       |
++--------+----------------+----------------+
+<CMD> sroute -connect { padPin } -layerChangeRange { METAL1(1) METAL6(6) } -blockPinTarget { nearestTarget } -padPinPortConnect { allPort oneGeom } -padPinTarget { nearestTarget } -padPinLayerRange { METAL3(3) METAL3(3) } -allowJogging 0 -crossoverViaLayerRange { METAL1(1) METAL6(6) } -nets {VSS VDD} -allowLayerChange 0 -targetViaLayerRange { METAL1(1) METAL6(6) }
+**WARN: (IMPSR-4058):	Sroute option: blockPinTarget should be used in conjunction with option: -connect blockPin. 
+*** Begin SPECIAL ROUTE on Fri Nov 30 21:30:18 2018 ***
+SPECIAL ROUTE ran on directory: /home/karmondy/VLSI/VLSIProject/innovus
+SPECIAL ROUTE ran on machine: lab2-33.eng.utah.edu (Linux 3.10.0-862.14.4.el7.x86_64 x86_64 3.95Ghz)
+
+Begin option processing ...
+srouteConnectPowerBump set to false
+routeSelectNet set to "VSS VDD"
+routeSpecial set to true
+srouteBottomLayerLimit set to 1
+srouteBottomTargetLayerLimit set to 1
+srouteConnectBlockPin set to false
+srouteConnectConverterPin set to false
+srouteConnectCorePin set to false
+srouteConnectStripe set to false
+srouteCrossoverViaBottomLayer set to 1
+srouteCrossoverViaTopLayer set to 6
+srouteFollowCorePinEnd set to 3
+srouteFollowPadPin set to false
+srouteMaxPadPinLayer set to 3
+srouteMinPadPinLayer set to 3
+srouteNoLayerChangeRoute set to true
+sroutePadPinAllPorts set to true
+sroutePreserveExistingRoutes set to true
+srouteRoutePowerBarPortOnBothDir set to true
+srouteStopBlockPin set to "nearestTarget"
+srouteStraightConnections set to "straightWithDrcClean"
+srouteTopLayerLimit set to 6
+srouteTopTargetLayerLimit set to 6
+End option processing: cpu: 0:00:00, real: 0:00:00, peak: 1584.00 megs.
+
+Reading DB technology information...
+Finished reading DB technology information.
+Reading floorplan and netlist information...
+Finished reading floorplan and netlist information.
+Read in 13 layers, 6 routing layers, 1 overlap layer
+Read in 28 macros, 28 used
+Read in 97 components
+  18 core components: 18 unplaced, 0 placed, 0 fixed
+  75 pad components: 0 unplaced, 75 placed, 0 fixed
+  4 other components: 0 unplaced, 4 placed, 0 fixed
+Read in 33 logical pins
+Read in 33 nets
+Read in 2 special nets, 2 routed
+Read in 106 terminals
+2 nets selected.
+
+Begin power routing ...
+  Number of IO ports routed: 2
+End power routing: cpu: 0:00:00, real: 0:00:00, peak: 1594.00 megs.
+
+
+
+ Begin updating DB with routing results ...
+ Updating DB with 0 via definition ...Extracting standard cell pins and blockage ...... 
+Pin and blockage extraction finished
+
+sroute created 2 wires.
+ViaGen created 4 vias, deleted 0 via to avoid violation.
++--------+----------------+----------------+
+|  Layer |     Created    |     Deleted    |
++--------+----------------+----------------+
+|  VIA12 |        2       |        0       |
+|  VIA23 |        2       |        0       |
+| METAL3 |        2       |       NA       |
++--------+----------------+----------------+
+<CMD> fit
+<CMD> saveDesign DBS/snake_top_top-power.enc
+#% Begin save design ... (date=11/30 21:30:18, mem=738.5M)
+% Begin Save netlist data ... (date=11/30 21:30:19, mem=738.5M)
+Writing Binary DB to DBS/snake_top_top-power.enc.dat.tmp/snake_top_top.v.bin in single-threaded mode...
+% End Save netlist data ... (date=11/30 21:30:19, total cpu=0:00:00.0, real=0:00:00.0, peak res=740.5M, current mem=740.5M)
+% Begin Save AAE data ... (date=11/30 21:30:19, mem=740.5M)
+Saving AAE Data ...
+% End Save AAE data ... (date=11/30 21:30:19, total cpu=0:00:00.0, real=0:00:00.0, peak res=740.5M, current mem=740.5M)
+% Begin Save clock tree data ... (date=11/30 21:30:19, mem=740.5M)
+% End Save clock tree data ... (date=11/30 21:30:19, total cpu=0:00:00.0, real=0:00:00.0, peak res=740.5M, current mem=740.5M)
+Saving preference file DBS/snake_top_top-power.enc.dat.tmp/gui.pref.tcl ...
+Saving mode setting ...
+Saving global file ...
+% Begin Save floorplan data ... (date=11/30 21:30:19, mem=740.5M)
+Saving floorplan file ...
+% End Save floorplan data ... (date=11/30 21:30:19, total cpu=0:00:00.0, real=0:00:00.0, peak res=740.5M, current mem=740.5M)
+Saving Drc markers ...
+... No Drc file written since there is no markers found.
+% Begin Save placement data ... (date=11/30 21:30:19, mem=740.5M)
+** Saving stdCellPlacement_binary (version# 1) ...
+% End Save placement data ... (date=11/30 21:30:19, total cpu=0:00:00.0, real=0:00:00.0, peak res=740.6M, current mem=740.6M)
+% Begin Save routing data ... (date=11/30 21:30:19, mem=740.6M)
+Saving route file ...
+*** Completed saveRoute (cpu=0:00:00.0 real=0:00:00.0 mem=851.8M) ***
+% End Save routing data ... (date=11/30 21:30:19, total cpu=0:00:00.0, real=0:00:00.0, peak res=740.6M, current mem=740.6M)
+Saving property file DBS/snake_top_top-power.enc.dat.tmp/snake_top_top.prop
+*** Completed saveProperty (cpu=0:00:00.0 real=0:00:00.0 mem=851.8M) ***
+% Begin Save power constraints data ... (date=11/30 21:30:19, mem=740.6M)
+% End Save power constraints data ... (date=11/30 21:30:19, total cpu=0:00:00.0, real=0:00:00.0, peak res=740.6M, current mem=740.6M)
+wc bc
+Generated self-contained design snake_top_top-power.enc.dat.tmp
+#% End save design ... (date=11/30 21:30:19, total cpu=0:00:00.2, real=0:00:01.0, peak res=740.6M, current mem=740.6M)
+*** Message Summary: 0 warning(s), 0 error(s)
+
+<CMD> pan 1113.586 -15.684
+<CMD> fit
+<CMD> pan 3.671 39.901
+<CMD> pan -5.651 146.918
+<CMD> pan -1.570 140.327
+<CMD> pan -8.790 156.965
+<CMD> pan -19.463 156.650
+<CMD> pan -7.535 143.779
+<CMD> pan -12.244 105.166
+<CMD> pan -72.963 2.315
+<CMD> pan -220.465 6.124
+<CMD> pan -215.248 -3.175
+<CMD> pan -104.109 -4.537
+<CMD> pan -73.460 -125.573
+<CMD> pan 114.484 48.653
+<CMD> pan 272.439 -158.597
+<CMD> pan 186.254 -59.479
+<CMD> pan -47.440 -462.194
+<CMD> pan 80.146 53.554
+<CMD> pan -17.965 -19.676
+<CMD> pan -14.209 -30.194
+<CMD> sroute -connect { blockPin corePin } -layerChangeRange { METAL1(1) METAL6(6) } -blockPinTarget { nearestTarget } -corePinTarget { firstAfterRowEnd } -crossoverViaLayerRange { METAL1(1) METAL6(6) } -nets {VSS VDD} -allowJogging 1 -allowLayerChange 1 -blockPin useLef -targetViaLayerRange { METAL1(1) METAL6(6) }
+*** Begin SPECIAL ROUTE on Fri Nov 30 21:31:31 2018 ***
+SPECIAL ROUTE ran on directory: /home/karmondy/VLSI/VLSIProject/innovus
+SPECIAL ROUTE ran on machine: lab2-33.eng.utah.edu (Linux 3.10.0-862.14.4.el7.x86_64 x86_64 4.00Ghz)
+
+Begin option processing ...
+srouteConnectPowerBump set to false
+routeSelectNet set to "VSS VDD"
+routeSpecial set to true
+srouteBlockPin set to "useLef"
+srouteBottomLayerLimit set to 1
+srouteBottomTargetLayerLimit set to 1
+srouteConnectConverterPin set to false
+srouteConnectPadPin set to false
+srouteConnectStripe set to false
+srouteCrossoverViaBottomLayer set to 1
+srouteCrossoverViaTopLayer set to 6
+srouteFollowCorePinEnd set to 3
+srouteFollowPadPin set to false
+srouteJogControl set to "preferWithChanges differentLayer"
+sroutePadPinAllPorts set to true
+sroutePreserveExistingRoutes set to true
+srouteRoutePowerBarPortOnBothDir set to true
+srouteStopBlockPin set to "nearestTarget"
+srouteTopLayerLimit set to 6
+srouteTopTargetLayerLimit set to 6
+End option processing: cpu: 0:00:00, real: 0:00:00, peak: 1746.00 megs.
+
+Reading DB technology information...
+Finished reading DB technology information.
+Reading floorplan and netlist information...
+Finished reading floorplan and netlist information.
+Read in 13 layers, 6 routing layers, 1 overlap layer
+Read in 58 macros, 28 used
+Read in 97 components
+  18 core components: 18 unplaced, 0 placed, 0 fixed
+  75 pad components: 0 unplaced, 75 placed, 0 fixed
+  4 other components: 0 unplaced, 4 placed, 0 fixed
+Read in 33 logical pins
+Read in 33 nets
+Read in 2 special nets, 2 routed
+Read in 106 terminals
+2 nets selected.
+
+Begin power routing ...
+**WARN: (IMPSR-1254):	Cannot find any block pin of net VDD. Check netlist, or change option to include the pin.
+**WARN: (IMPSR-1254):	Cannot find any block pin of net VSS. Check netlist, or change option to include the pin.
+CPU time for FollowPin 0 seconds
+CPU time for FollowPin 0 seconds
+  Number of Block ports routed: 0
+  Number of Core ports routed: 494
+  Number of Power Bump ports routed: 0
+  Number of Followpin connections: 247
+End power routing: cpu: 0:00:00, real: 0:00:00, peak: 1749.00 megs.
+
+
+
+ Begin updating DB with routing results ...
+ Updating DB with 0 via definition ...
+sroute created 741 wires.
+ViaGen created 494 vias, deleted 0 via to avoid violation.
++--------+----------------+----------------+
+|  Layer |     Created    |     Deleted    |
++--------+----------------+----------------+
+| METAL1 |       741      |       NA       |
+|  VIA12 |       494      |        0       |
++--------+----------------+----------------+
+<CMD> fit
+<CMD> saveDesign DBS/snake_top_top-power-routed.enc
+#% Begin save design ... (date=11/30 21:31:31, mem=889.4M)
+% Begin Save netlist data ... (date=11/30 21:31:31, mem=877.8M)
+Writing Binary DB to DBS/snake_top_top-power-routed.enc.dat.tmp/snake_top_top.v.bin in single-threaded mode...
+% End Save netlist data ... (date=11/30 21:31:31, total cpu=0:00:00.0, real=0:00:00.0, peak res=880.0M, current mem=880.0M)
+% Begin Save AAE data ... (date=11/30 21:31:31, mem=880.0M)
+Saving AAE Data ...
+% End Save AAE data ... (date=11/30 21:31:31, total cpu=0:00:00.0, real=0:00:00.0, peak res=880.0M, current mem=880.0M)
+% Begin Save clock tree data ... (date=11/30 21:31:31, mem=880.0M)
+% End Save clock tree data ... (date=11/30 21:31:31, total cpu=0:00:00.0, real=0:00:00.0, peak res=880.0M, current mem=880.0M)
+Saving preference file DBS/snake_top_top-power-routed.enc.dat.tmp/gui.pref.tcl ...
+Saving mode setting ...
+Saving global file ...
+% Begin Save floorplan data ... (date=11/30 21:31:32, mem=880.0M)
+Saving floorplan file ...
+% End Save floorplan data ... (date=11/30 21:31:32, total cpu=0:00:00.0, real=0:00:00.0, peak res=880.0M, current mem=880.0M)
+Saving Drc markers ...
+... No Drc file written since there is no markers found.
+% Begin Save placement data ... (date=11/30 21:31:32, mem=880.0M)
+** Saving stdCellPlacement_binary (version# 1) ...
+% End Save placement data ... (date=11/30 21:31:32, total cpu=0:00:00.0, real=0:00:00.0, peak res=880.0M, current mem=880.0M)
+% Begin Save routing data ... (date=11/30 21:31:32, mem=880.0M)
+Saving route file ...
+*** Completed saveRoute (cpu=0:00:00.0 real=0:00:00.0 mem=1002.0M) ***
+% End Save routing data ... (date=11/30 21:31:32, total cpu=0:00:00.0, real=0:00:00.0, peak res=880.9M, current mem=880.9M)
+Saving property file DBS/snake_top_top-power-routed.enc.dat.tmp/snake_top_top.prop
+*** Completed saveProperty (cpu=0:00:00.0 real=0:00:00.0 mem=1002.0M) ***
+% Begin Save power constraints data ... (date=11/30 21:31:32, mem=880.9M)
+% End Save power constraints data ... (date=11/30 21:31:32, total cpu=0:00:00.0, real=0:00:00.0, peak res=880.9M, current mem=880.9M)
+wc bc
+Generated self-contained design snake_top_top-power-routed.enc.dat.tmp
+#% End save design ... (date=11/30 21:31:32, total cpu=0:00:00.2, real=0:00:01.0, peak res=889.4M, current mem=871.1M)
+*** Message Summary: 0 warning(s), 0 error(s)
+
+<CMD> pan -11.799 -96.361
+<CMD> pan -145.130 27.809
+<CMD> selectInst pad_vdd0
+<CMD> setLayerPreference pinObj -isVisible 1
+<CMD> setLayerPreference cellBlkgObj -isVisible 1
+<CMD> setLayerPreference layoutObj -isVisible 1
+<CMD> pan 80.820 39.976
+<CMD> pan 8.389 14.007
+<CMD> pan -73.612 -0.328
+<CMD> pan -10.656 -9.181
+<CMD> pan -54.773 -121.717
+<CMD> pan 104.764 125.195
+<CMD> pan -265.170 -28.691
+<CMD> pan -68.683 -2.608
+<CMD> pan -173.882 -5.651
+<CMD> pan -117.370 25.648
+<CMD> pan -98.243 43.905
+<CMD> pan -18.692 133.454
+<CMD> pan 0.000 95.201
+<CMD> pan 13.041 98.243
+<CMD> pan 86.811 158.841
+<CMD> pan -0.870 135.194
+<CMD> pan 9.998 150.843
+<CMD> pan 14.780 165.188
+<CMD> pan 49.991 112.588
+<CMD> pan 136.063 64.336
+<CMD> pan 228.220 7.390
+<CMD> pan 218.657 17.388
+<CMD> pan 267.779 -58.251
+<CMD> pan -33.907 -130.411
+<CMD> pan -28.256 -170.839
+<CMD> pan -25.213 -226.481
+<CMD> pan -51.296 -192.574
+<CMD> pan -20.431 -216.483
+<CMD> pan -23.039 -195.618
+<CMD> pan -22.170 -99.983
+<CMD> pan -25.476 -24.425
+<CMD> pan -151.701 56.849
+<CMD> pan 117.469 5.968
+<CMD> pan 100.508 7.538
+<CMD> pan -125.303 -30.175
+<CMD> pan -4.603 46.541
+<CMD> pan -53.483 4.366
+<CMD> pan -3.625 -52.693
+<CMD> pan 26.785 -56.520
+<CMD> pan 61.688 84.920
+<CMD> pan -15.495 -19.861
+<CMD> pan -14.302 -18.431
+<CMD> pan -23.267 -27.093
+<CMD> pan -98.239 -2.952
+<CMD> pan -68.274 28.768
+<CMD> pan -70.475 13.165
+<CMD> deselectAll
+<CMD> selectInst pad_clk_in
+<CMD> deselectAll
+<CMD> selectInst pad_clk_in
+<CMD> setLayerPreference allM2 -isVisible 0
+<CMD> setLayerPreference allM3Cont -isVisible 0
+<CMD> setLayerPreference allM3 -isVisible 0
+<CMD> setLayerPreference allM3 -isVisible 1
+<CMD> setLayerPreference allM3 -isVisible 0
+<CMD> setLayerPreference allM3 -isVisible 1
+<CMD> setLayerPreference allM3 -isVisible 0
+<CMD> setLayerPreference allM3 -isVisible 1
+<CMD> setLayerPreference allM1 -isVisible 0
+<CMD> setLayerPreference allM1Cont -isVisible 0
+<CMD> setLayerPreference allM0 -isVisible 0
+<CMD> setLayerPreference allM3 -isVisible 0
+<CMD> setLayerPreference allM3 -isVisible 1
+<CMD> setLayerPreference allM5 -isVisible 0
+<CMD> setLayerPreference allM6 -isVisible 0
+<CMD> setLayerPreference allM6 -isVisible 1
+<CMD> setLayerPreference allM6 -isVisible 0
+<CMD> setLayerPreference allM4 -isVisible 0
+<CMD> setLayerPreference allM3 -isVisible 0
+<CMD> pan -200.626 343.601
+<CMD> pan 239.829 380.498
+<CMD> pan 0.062 0.312
+<CMD> deselectAll
+<CMD> selectVia 240.5200 327.9250 243.5200 328.3950 2 VSS
+<CMD> setLayerPreference allM2Cont -isVisible 0
+<CMD> pan -39.434 -309.675
+<CMD> pan 168.179 619.608
+<CMD> setLayerPreference allM4 -isVisible 1
+<CMD> setLayerPreference allM4 -isVisible 0
+<CMD> setLayerPreference allM4Cont -isVisible 0
+<CMD> setLayerPreference allM4Cont -isVisible 1
+<CMD> setLayerPreference allM4Cont -isVisible 0
+<CMD> setLayerPreference allM4Cont -isVisible 1
+<CMD> setLayerPreference allM4Cont -isVisible 0
+<CMD> setLayerPreference allM4Cont -isVisible 1
+<CMD> setLayerPreference allM5Cont -isVisible 0
+<CMD> setLayerPreference allM5Cont -isVisible 1
+<CMD> pan -241.204 -562.073
+<CMD> setLayerPreference allM2Cont -isVisible 1
+<CMD> pan -100.700 -273.155
+<CMD> pan -50.149 -6.705
+<CMD> pan -46.517 0.698
+<CMD> pan -124.168 27.028
+<CMD> pan -109.193 78.948
+<CMD> pan -299.677 127.718
+<CMD> setLayerPreference allM1 -isVisible 1
+<CMD> setLayerPreference allM2 -isVisible 1
+<CMD> pan 8.141 -7.398
+<CMD> setLayerPreference allM3 -isVisible 1
+<CMD> setLayerPreference allM2Cont -isVisible 0
+<CMD> setLayerPreference allM2Cont -isVisible 1
+<CMD> setLayerPreference allM2Cont -isVisible 0
+<CMD> setLayerPreference allM2Cont -isVisible 1
+<CMD> setLayerPreference allM2Cont -isVisible 0
+<CMD> setLayerPreference allM2Cont -isVisible 1
+<CMD> pan -45.218 8.075
+<CMD> setLayerPreference allM1 -isVisible 0
+<CMD> setLayerPreference allM1 -isVisible 1
+<CMD> setLayerPreference allM1 -isVisible 0
+<CMD> setLayerPreference allM1 -isVisible 1
+<CMD> setLayerPreference allM3 -isVisible 0
+<CMD> setLayerPreference allM3 -isVisible 1
+<CMD> setLayerPreference allM3 -isVisible 0
+<CMD> setLayerPreference allM3 -isVisible 1
+<CMD> setLayerPreference allM3 -isVisible 0
+<CMD> setLayerPreference allM3 -isVisible 1

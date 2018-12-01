@@ -4667,3 +4667,8 @@ Merging GDS file /research/ece/lnis-teaching/Designkits/tsmc180nm/full_custom_li
 	****** Merge file: /research/ece/lnis-teaching/Designkits/tsmc180nm/full_custom_lib/gds/padlib_tsmc180.gds has units: 1000 per micron.
 	****** unit scaling factor = 2 ******
 ######Streamout is finished!
+
+*** Memory Usage v#1 (Current mem = 1655.543M, initial mem = 187.676M) ***
+*** Message Summary: 165 warning(s), 0 error(s)
+
+--- Ending "Innovus" (totcpu=0:03:38, real=0:45:01, mem=1655.5M) ---
