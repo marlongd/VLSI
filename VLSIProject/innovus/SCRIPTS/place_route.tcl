@@ -357,6 +357,10 @@ proc verify_design {} {
 
    put_header "Verifying design..."
 
+encounter> globalNetConnect VDD -type pgpin -pin VDD -inst *
+encounter> globalNetConnect VSS -type pgpin -pin VSS -inst *
+encounter> applyGlobalNets 
+
    verifyConnectivity -type all -report ${rpt_dir}/connectivity.rpt
 
    setVerifyGeometryMode -regRoutingOnly true -error 100000

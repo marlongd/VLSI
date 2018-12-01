@@ -4565,3 +4565,8 @@ End Summary
 <CMD> pan 14.912 -5.482
 <CMD> pan -4.386 -4.313
 <CMD> pan -16.290 26.104
+
+*** Memory Usage v#1 (Current mem = 1417.680M, initial mem = 179.676M) ***
+*** Message Summary: 166 warning(s), 0 error(s)
+
+--- Ending "Innovus" (totcpu=0:02:36, real=0:10:40, mem=1417.7M) ---

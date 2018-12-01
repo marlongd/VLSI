@@ -1,20 +1,20 @@
 *** Statistics for net list snake_top_top ***
-Number of cells      = 28355
-Number of nets       = 7959
+Number of cells      = 28358
+Number of nets       = 7953
 Number of tri-nets   = 0
 Number of degen nets = 8
-Number of pins       = 23956
+Number of pins       = 23944
 Number of i/os       = 33
 
 Number of nets with    1 terms = 8 (0.1%)
-Number of nets with    2 terms = 5816 (73.1%)
-Number of nets with    3 terms = 1096 (13.8%)
+Number of nets with    2 terms = 5814 (73.1%)
+Number of nets with    3 terms = 1091 (13.7%)
 Number of nets with    4 terms = 234 (2.9%)
-Number of nets with    5 terms = 183 (2.3%)
+Number of nets with    5 terms = 185 (2.3%)
 Number of nets with    6 terms = 119 (1.5%)
-Number of nets with    7 terms = 108 (1.4%)
-Number of nets with    8 terms = 73 (0.9%)
-Number of nets with    9 terms = 53 (0.7%)
+Number of nets with    7 terms = 106 (1.3%)
+Number of nets with    8 terms = 71 (0.9%)
+Number of nets with    9 terms = 56 (0.7%)
 Number of nets with >=10 terms = 269 (3.4%)
 
 *** 34 Primitives used:
@@ -41,15 +41,15 @@ Primitive INVX32 (27 insts)
 Primitive INVX2 (258 insts)
 Primitive INVX16 (27 insts)
 Primitive INVX1 (39 insts)
-Primitive FILL8 (672 insts)
+Primitive FILL8 (675 insts)
 Primitive FILL4 (2450 insts)
 Primitive FILL32 (7960 insts)
 Primitive FILL2 (4686 insts)
 Primitive FILL16 (367 insts)
-Primitive FILL1 (4231 insts)
+Primitive FILL1 (4237 insts)
 Primitive DFFQX1 (674 insts)
 Primitive DFFQQBX1 (6 insts)
 Primitive DFFQBX1 (54 insts)
-Primitive BUFX1 (165 insts)
+Primitive BUFX1 (159 insts)
 Primitive AND2X1 (754 insts)
 ************
