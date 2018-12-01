@@ -70,7 +70,7 @@ module VGAController(clk, reset, data, XLocation, YLocation, vga_clk, RED, GREEN
 				
 				else
 				begin
-					RED[7:0] = 8'b111111111; GREEN[7:0] = 8'b00000000; BLUE[7:0] = 8'b00000000;
+					RED[7:0] = 8'b11111111; GREEN[7:0] = 8'b00000000; BLUE[7:0] = 8'b00000000;
 				end
 				
 				

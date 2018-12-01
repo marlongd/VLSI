@@ -9,7 +9,7 @@ module snake_top(clk, reset, vga_clk, RED, GREEN, BLUE, hsync, vsync, up_button,
 		wire [3:0] XLocation, YLocation;
 		wire [1:0] snake_data;
 		wire write_enable;
-		wire [1799:0] snake;
+		wire [79:0] snake;
 		wire [3:0] x_loc_sw, y_loc_sw;
 		reg [21:0] clk_counter;
 		reg snake_reset;
@@ -24,7 +24,7 @@ module snake_top(clk, reset, vga_clk, RED, GREEN, BLUE, hsync, vsync, up_button,
 				slow_clk = 0;
 			end
 		
-			clk_counter = clk_counter + 1;
+			clk_counter = clk_counter + 22'd1;
 			if (clk_counter == 22'b1111111111111111111110) begin
 				snake_reset = 1;
 			end

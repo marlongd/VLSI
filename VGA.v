@@ -35,11 +35,11 @@ module VGA(clk, hsync, vsync, active_video, HCount, VCount);
 				VCount = 0;
 			end
 			else begin
-				VCount = VCount + 1;
+				VCount = VCount + 9'd1;
 			end
 		end
 		else begin
-			HCount = HCount + 1;
+			HCount = HCount + 10'd1;
 		end
 		
 		
