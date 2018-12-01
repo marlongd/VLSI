@@ -5,7 +5,7 @@ input right,
 input left,
 input up,
 input down,
-output reg[1799:0] snake,
+output reg[79:0] snake,
 output reg write_snake,
 output reg [10:0] index,
 output reg [3:0] xfood, //x pixel
@@ -35,7 +35,7 @@ output reg [3:0] yfood //y pixel
 	begin
 		if(reset)begin 
 			state <= 3'd0; //RESET
-			snake = 1800'd0;
+			snake = 80'd0;
 			write_snake <=0;
 			x_rando_count <= 0;
 			y_rando_count <= 0;
@@ -47,7 +47,7 @@ output reg [3:0] yfood //y pixel
 				direction= 3'd4; 
 				xfood = 4'd3;
 				yfood = 4'd3;//in the memory
-				snake = {1775'd0, 4'd1, 4'd3, 4'd1, 4'd2, 4'd1, 4'd1};
+				snake = {56'd0, 4'd1, 4'd3, 4'd1, 4'd2, 4'd1, 4'd1};
 				index =11'd23;
 				new_head =0; //right
 			end
@@ -66,7 +66,7 @@ output reg [3:0] yfood //y pixel
 		case(state)
 		
 			RESET: begin
-				snake = 1800'd0;
+				snake = 80'd0;
 				new_head = 0;
 			end
 			S_UP:		begin
@@ -125,8 +125,7 @@ output reg [3:0] yfood //y pixel
 
 	always @*
 	begin
-	
-		if(reset) next_state =3'd4;
+		if(reset) next_state = 3'd4;
 
 		else if(snake[index -:4] == yfood && snake[index-4 -: 4] == xfood)
 						next_state = EAT;
@@ -141,7 +140,7 @@ output reg [3:0] yfood //y pixel
 
 		else if (next_state == EAT) next_state = direction;
 		
-		else next_state = next_state;
+		else next_state = direction;
 
 	end
 endmodule 

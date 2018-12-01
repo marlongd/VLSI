@@ -1,12 +1,11 @@
-module snakeWriter (clk, writeSnake, snake_in, x_loc, y_loc, data_out, reset_out,reset,
+module snakeWriter (clk, writeSnake, snake_in, x_loc, y_loc, data_out, reset,
 							index,xfood,yfood);
 							
 	input clk, writeSnake;
 	input [10:0] index;
-	input [1799:0] snake_in;
+	input [79:0] snake_in;
 	input reset;
 	input [3:0] xfood, yfood;
-	output reg reset_out;
 	output reg [3:0] x_loc;
 	output reg [3:0] y_loc;
 	output reg[1:0] data_out;
@@ -38,7 +37,7 @@ module snakeWriter (clk, writeSnake, snake_in, x_loc, y_loc, data_out, reset_out
 				end
 				
 				else begin
-					count <= count + 8;
+					count <= count + 11'd8;
 					 data_out <= 2'b10;
 					snake_part <= snake_in[count +: 8];
 					y_loc <= snake_part[7 : 4];	
