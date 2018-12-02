@@ -1,3 +1,5 @@
+
+
 module snake_top(clk, reset, vga_clk, RED, GREEN, BLUE, hsync, vsync, up_button,
 						down_button, left_button, right_button);
 		
@@ -24,7 +26,7 @@ module snake_top(clk, reset, vga_clk, RED, GREEN, BLUE, hsync, vsync, up_button,
 				slow_clk = 0;
 			end
 		
-			clk_counter = clk_counter + 1;
+			clk_counter = clk_counter + 22'd1;
 			if (clk_counter == 22'b1111111111111111111110) begin
 				snake_reset = 1;
 			end
@@ -54,6 +56,58 @@ module snake_top(clk, reset, vga_clk, RED, GREEN, BLUE, hsync, vsync, up_button,
 			.up(!up_button), .down(!down_button), .snake(snake), .write_snake(swrite), .index(index),
 			.xfood(xfood), .yfood(yfood));
 
+endmodule
+
+//--------------
+// Design Name: memory
+// Function: synchronous RAM
+// Author: Douglas Karmondy
+//-----------------
+
+module memory(clk, data_in, x_loc_vga, y_loc_vga, x_loc_sw, y_loc_sw, writeEnable, 
+					data_out, rst, sw_reset);
+	input clk, rst;
+	input writeEnable; //0 write, 1 read
+	input  [1:0] data_in;
+	input sw_reset;
+	input [3:0] x_loc_vga, y_loc_vga, x_loc_sw, y_loc_sw;
+	output reg [1:0] data_out;
+	
+	integer i;
+	reg [1:0] data;
+	reg [1:0] world_memory [255:0]; //15 X 15 = 225 //16X16 256
+	
+	reg output_bit; //225 grid of on and off
+	
+	
+	// Keep track of food
+	// 00 - world
+	// 01 - food
+	// 10 - snake
+	// 11
+	
+	// food is initially at (3,3)
+	// snake is 3 blocks initially
+	
+	
+	always @(posedge clk)
+	begin
+	    if(rst || sw_reset)begin
+			for(i=0; i<255; i= i+1)begin
+				world_memory[i] <= 2'b00;    // world populated
+			end
+		
+		end
+
+		if(writeEnable) world_memory[15 * (y_loc_sw) + x_loc_sw]<= data_in;
+	end
+	
+	always @*
+	begin
+			data_out = world_memory[(15 *y_loc_vga) + x_loc_vga];
+	end
+	
+	 
 endmodule
 
 module Snake(
@@ -184,8 +238,7 @@ output reg [3:0] yfood //y pixel
 
 	always @*
 	begin
-	
-		if(reset) next_state =3'd4;
+		if(reset) next_state = 3'd4;
 
 		else if(snake[index -:4] == yfood && snake[index-4 -: 4] == xfood)
 						next_state = EAT;
@@ -200,60 +253,12 @@ output reg [3:0] yfood //y pixel
 
 		else if (next_state == EAT) next_state = direction;
 		
-		else next_state = next_state;
+		else next_state = direction;
 
 	end
 endmodule 
 
-
-module memory(clk, data_in, x_loc_vga, y_loc_vga, x_loc_sw, y_loc_sw, writeEnable, 
-					data_out, rst, sw_reset);
-	input clk, rst;
-	input writeEnable; //0 write, 1 read
-	input  [1:0] data_in;
-	input sw_reset;
-	input [3:0] x_loc_vga, y_loc_vga, x_loc_sw, y_loc_sw;
-	output reg [1:0] data_out;
-	
-	integer i;
-	reg [1:0] data;
-	reg [1:0] world_memory [255:0]; //15 X 15 = 225 //16X16 256
-	
-	reg output_bit; //225 grid of on and off
-	
-	
-	// Keep track of food
-	// 00 - world
-	// 01 - food
-	// 10 - snake
-	// 11
-	
-	// food is initially at (3,3)
-	// snake is 3 blocks initially
-	
-	
-	always @(posedge clk)
-	begin
-	    if(rst || sw_reset)begin
-			for(i=0; i<255; i= i+1)begin
-				world_memory[i] <= 2'b00;    // world populated
-			end
-		
-		end
-
-		if(writeEnable) world_memory[15 * (y_loc_sw) + x_loc_sw]<= data_in;
-	end
-	
-	always @*
-	begin
-			data_out = world_memory[(15 *y_loc_vga) + x_loc_vga];
-	end
-	
-	 
-endmodule
-
-
-module snakeWriter (clk, writeSnake, snake_in, x_loc, y_loc, data_out, reset_out,reset,
+module snakeWriter (clk, writeSnake, snake_in, x_loc, y_loc, data_out, reset,
 							index,xfood,yfood);
 							
 	input clk, writeSnake;
@@ -261,7 +266,6 @@ module snakeWriter (clk, writeSnake, snake_in, x_loc, y_loc, data_out, reset_out
 	input [79:0] snake_in;
 	input reset;
 	input [3:0] xfood, yfood;
-	output reg reset_out;
 	output reg [3:0] x_loc;
 	output reg [3:0] y_loc;
 	output reg[1:0] data_out;
@@ -293,7 +297,7 @@ module snakeWriter (clk, writeSnake, snake_in, x_loc, y_loc, data_out, reset_out
 				end
 				
 				else begin
-					count <= count + 8;
+					count <= count + 11'd8;
 					 data_out <= 2'b10;
 					snake_part <= snake_in[count +: 8];
 					y_loc <= snake_part[7 : 4];	
@@ -343,11 +347,11 @@ module VGA(clk, hsync, vsync, active_video, HCount, VCount);
 				VCount = 0;
 			end
 			else begin
-				VCount = VCount + 1;
+				VCount = VCount + 9'd1;
 			end
 		end
 		else begin
-			HCount = HCount + 1;
+			HCount = HCount + 10'd1;
 		end
 		
 		
@@ -375,7 +379,7 @@ module VGA(clk, hsync, vsync, active_video, HCount, VCount);
     end
 endmodule
 
-
+`timescale 1ns / 1ps
 
 module VGAController(clk, reset, data, XLocation, YLocation, vga_clk, RED, GREEN, 
 							BLUE, hsync, vsync);
@@ -447,7 +451,7 @@ module VGAController(clk, reset, data, XLocation, YLocation, vga_clk, RED, GREEN
 				
 				else
 				begin
-					RED[7:0] = 8'b111111111; GREEN[7:0] = 8'b00000000; BLUE[7:0] = 8'b00000000;
+					RED[7:0] = 8'b11111111; GREEN[7:0] = 8'b00000000; BLUE[7:0] = 8'b00000000;
 				end
 				
 				

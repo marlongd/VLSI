@@ -4,8 +4,8 @@ set ::IMEX::libVar ${::IMEX::dataVar}/libs
 
 create_library_set -name wc\
    -timing\
-    [list ${::IMEX::libVar}/lib/typ/sclib_tsmc180_ss_nldm.lib\
-    ${::IMEX::libVar}/lib/typ/padlib_tsmc180_ss_nldm.lib]
+    [list ${::IMEX::libVar}/mmmc/sclib_tsmc180_ss_nldm.lib\
+    ${::IMEX::libVar}/mmmc/padlib_tsmc180_ss_nldm.lib]
 create_library_set -name bc\
    -timing\
     [list ${::IMEX::libVar}/mmmc/sclib_tsmc180_ff_nldm.lib\
@@ -36,7 +36,7 @@ create_delay_corner -name bc\
    -rc_corner bc
 create_constraint_mode -name constraint\
    -sdc_files\
-    [list ${::IMEX::libVar}/mmmc/snake_top_mapped.sdc]
-create_analysis_view -name wc -constraint_mode constraint -delay_corner wc
-create_analysis_view -name bc -constraint_mode constraint -delay_corner bc
+    [list ${::IMEX::dataVar}/mmmc/modes/constraint/constraint.sdc]
+create_analysis_view -name wc -constraint_mode constraint -delay_corner wc -latency_file ${::IMEX::dataVar}/mmmc/views/wc/latency.sdc
+create_analysis_view -name bc -constraint_mode constraint -delay_corner bc -latency_file ${::IMEX::dataVar}/mmmc/views/bc/latency.sdc
 set_analysis_view -setup [list wc] -hold [list bc]

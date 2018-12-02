@@ -1,5 +1,5 @@
 # PPCMD 1 
-# sroute -connect { padPin } -layerChangeRange { METAL1(1) METAL6(6) } -blockPinTarget { nearestTarget } -padPinPortConnect { allPort oneGeom } -padPinTarget { nearestTarget } -padPinLayerRange { METAL3(3) METAL3(3) } -allowJogging 0 -crossoverViaLayerRange { METAL1(1) METAL6(6) } -nets {VSS VDD} -allowLayerChange 0 -targetViaLayerRange { METAL1(1) METAL6(6) }
+# sroute -connect { padPin } -layerChangeRange { METAL1(1) METAL5(5) } -blockPinTarget { nearestTarget } -padPinPortConnect { allPort oneGeom } -padPinTarget { nearestTarget } -padPinLayerRange { METAL3(3) METAL3(3) } -allowJogging 0 -crossoverViaLayerRange { METAL1(1) METAL5(5) } -nets {VSS VDD} -allowLayerChange 0 -targetViaLayerRange { METAL1(1) METAL5(5) }
 # 2 
 # 16 
 # 0 

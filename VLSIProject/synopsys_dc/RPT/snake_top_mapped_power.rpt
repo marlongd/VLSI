@@ -8,7 +8,7 @@ Report : power
         -analysis_effort low
 Design : snake_top
 Version: K-2015.06-SP5-6
-Date   : Thu Nov 29 19:16:23 2018
+Date   : Sat Dec  1 15:27:50 2018
 ****************************************
 
 
@@ -30,12 +30,12 @@ Power-specific unit information :
     Leakage Power Units = 1nW
 
 
-  Cell Internal Power  = 358.6147 uW   (91%)
-  Net Switching Power  =  36.3840 uW    (9%)
+  Cell Internal Power  = 362.1260 uW   (90%)
+  Net Switching Power  =  42.2092 uW   (10%)
                          ---------
-Total Dynamic Power    = 394.9988 uW  (100%)
+Total Dynamic Power    = 404.3352 uW  (100%)
 
-Cell Leakage Power     = 252.2457 nW
+Cell Leakage Power     = 254.1322 nW
 
 
                  Internal         Switching           Leakage            Total
@@ -45,9 +45,9 @@ io_pad             0.0000            0.0000            0.0000            0.0000 
 memory             0.0000            0.0000            0.0000            0.0000  (   0.00%)
 black_box          0.0000            0.0000            0.0000            0.0000  (   0.00%)
 clock_network      0.0000            0.0000            0.0000            0.0000  (   0.00%)
-register           0.2809        5.4687e-04           73.5060            0.2816  (  71.24%)
-sequential     4.5080e-02        1.0012e-04           25.2109        4.5205e-02  (  11.44%)
-combinational  3.2588e-02        3.5737e-02          153.5287        6.8479e-02  (  17.33%)
+register           0.2809        5.4357e-04           73.5050            0.2815  (  69.58%)
+sequential     4.5076e-02            0.0000           25.1144        4.5101e-02  (  11.15%)
+combinational  3.6145e-02        4.1666e-02          155.5129        7.7966e-02  (  19.27%)
 --------------------------------------------------------------------------------------------------
-Total              0.3586 mW     3.6384e-02 mW       252.2456 nW         0.3952 mW
+Total              0.3621 mW     4.2209e-02 mW       254.1322 nW         0.4046 mW
 1

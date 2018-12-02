@@ -766,3 +766,8 @@ Generated self-contained design snake_top_top-power-routed.enc.dat.tmp
 <CMD> setLayerPreference allM3 -isVisible 1
 <CMD> setLayerPreference allM3 -isVisible 0
 <CMD> setLayerPreference allM3 -isVisible 1
+
+*** Memory Usage v#1 (Current mem = 995.734M, initial mem = 179.676M) ***
+*** Message Summary: 105 warning(s), 0 error(s)
+
+--- Ending "Innovus" (totcpu=0:10:38, real=2:11:09, mem=995.7M) ---

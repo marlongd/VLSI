@@ -4,8 +4,8 @@ set ::IMEX::libVar ${::IMEX::dataVar}/libs
 
 create_library_set -name wc\
    -timing\
-    [list ${::IMEX::libVar}/lib/typ/sclib_tsmc180_ss_nldm.lib\
-    ${::IMEX::libVar}/lib/typ/padlib_tsmc180_ss_nldm.lib]
+    [list ${::IMEX::libVar}/mmmc/sclib_tsmc180_ss_nldm.lib\
+    ${::IMEX::libVar}/mmmc/padlib_tsmc180_ss_nldm.lib]
 create_library_set -name bc\
    -timing\
     [list ${::IMEX::libVar}/mmmc/sclib_tsmc180_ff_nldm.lib\

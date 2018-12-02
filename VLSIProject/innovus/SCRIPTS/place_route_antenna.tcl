@@ -1,12 +1,17 @@
 # place_route.tcl
-
+#Change the design name as well as the required density
 set design		snake_top_top
-set rpt_dir		./RPT
+set globalname		design
+set density		0.6
 set max_route_layer		5
+
+
+set rpt_dir		./RPT
 set pwr_net 		VDD
 set gnd_net 		VSS
+
 #To enable multi threading. Not sure if the CADE machines can allow more cores than this.
-set cpu_number 		4
+set cpu_number 		32
 #Uniquify the design, otherwise, might get error during CTS
 set init_design_uniquify      1
 
@@ -77,11 +82,12 @@ proc restore_design step {
 #
 proc import_design {{how "init"}} {
    global design
+   global globalname
 
    put_header [concat "Importing " $design " " $how "..."]
 
    switch $how {
-      "init"      {  uplevel #0 source CONF/design.globals
+      "init"      {  uplevel #0 source CONF/${globalname}.globals
                      init_design
                      save_design import
                   }
@@ -98,17 +104,16 @@ proc import_design {{how "init"}} {
 proc floorplan_design {} {
    global design
    global root
-   set init_design_uniquify 1
+   global density
    put_header [concat "Floorplanning " $design "..."]
 
    set ASPECT_RATIO   1.0     ;# rectangle with height = 1.0*width
-   set ROW_DENSITY    0.25    ;# 0.1..1.0
    set CORE_TO_LEFT   12     ;# micron
    set CORE_TO_BOTTOM 12     ;# micron
    set CORE_TO_RIGHT  12     ;# micron
    set CORE_TO_TOP    12     ;# micron
 
-   floorPlan -site core7T -r $ASPECT_RATIO $ROW_DENSITY $CORE_TO_LEFT $CORE_TO_BOTTOM $CORE_TO_RIGHT $CORE_TO_TOP
+   floorPlan -site core7T -r $ASPECT_RATIO $density $CORE_TO_LEFT $CORE_TO_BOTTOM $CORE_TO_RIGHT $CORE_TO_TOP
    fit
 
    save_design fplan
@@ -202,7 +207,7 @@ proc add_power_nets {} {
       -extend_corner $EXTEND -jog_distance 0 -snap_wire_center_to_grid None -threshold 0
 
 #Connect the VDD/VSS ring to VDD/VSS pads
-sroute -connect { padPin } -layerChangeRange { METAL1(1) METAL6(6) } -blockPinTarget { nearestTarget } -padPinPortConnect { allPort oneGeom } -padPinTarget { nearestTarget } -padPinLayerRange { METAL3(3) METAL3(3) } -allowJogging 0 -crossoverViaLayerRange { METAL1(1) METAL6(6) } -nets $POWER_NETS -allowLayerChange 0 -targetViaLayerRange { METAL1(1) METAL6(6) }
+sroute -connect { padPin } -layerChangeRange { METAL1(1) METAL5(5) } -blockPinTarget { nearestTarget } -padPinPortConnect { allPort oneGeom } -padPinTarget { nearestTarget } -padPinLayerRange { METAL3(3) METAL3(3) } -allowJogging 0 -crossoverViaLayerRange { METAL1(1) METAL5(5) } -nets $POWER_NETS -allowLayerChange 0 -targetViaLayerRange { METAL1(1) METAL5(5) }
 
    fit
    save_design power
@@ -218,13 +223,13 @@ proc route_power_nets {} {
    set POWER_NETS    "$gnd_net $pwr_net"  ;
 
    sroute -connect { blockPin corePin } \
-          -layerChangeRange { METAL1(1) METAL6(6) } \
+          -layerChangeRange { METAL1(1) METAL5(5) } \
           -blockPinTarget { nearestTarget } \
           -corePinTarget { firstAfterRowEnd } \
-          -crossoverViaLayerRange { METAL1(1) METAL6(6) } -nets $POWER_NETS \
+          -crossoverViaLayerRange { METAL1(1) METAL5(5) } -nets $POWER_NETS \
           -allowJogging 1 \
           -allowLayerChange 1 \
-          -blockPin useLef -targetViaLayerRange { METAL1(1) METAL6(6) }
+          -blockPin useLef -targetViaLayerRange { METAL1(1) METAL5(5) }
 
    fit
    save_design power-routed
@@ -251,8 +256,12 @@ proc place_core_cells {} {
    setRouteMode -earlyGlobalMaxRouteLayer $max_route_layer
    setPlaceMode -timingDriven true \
                 -congEffort auto \
-                -doCongOpt false -placeIOPins 1
+                -placeIOPins 1
+#-congEffort auto 
+#-doCongOpt false 
    placeDesign -noPrePlaceOpt
+
+#-noPrePlaceOpt
 
    setDrawView place
    checkPlace ${rpt_dir}/place.rpt
@@ -279,9 +288,14 @@ proc create_clock_tree {{opt ""}} {
 
    set cts_buffer_cells "BUFX1"
    set cts_inverter_cells "INVX1 INVX2 INVX4 INVX8 INVX16 INVX32"
+   set_ccopt_property route_type_override_preferred_routing_layer_effort none
+
+   setNanoRouteMode -routeTopRoutingLayer 5
+   setNanoRouteMode -routeBottomRoutingLayer 2
 
    put_header "Creating clock tree..."
    create_route_type -name clkroute -top_preferred_layer $max_route_layer
+
 
    set_ccopt_property route_type clkroute -net_type trunk
    set_ccopt_property route_type clkroute -net_type leaf
@@ -295,8 +309,11 @@ proc create_clock_tree {{opt ""}} {
    ccopt_design -cts
 
    save_design cts
+
 }
 
+
+#dbGet [dbGet top.nets.wires.layer.name -p3 METAL6].name -u
 
 #=========================================================================================
 # route_design
@@ -318,13 +335,63 @@ proc route_design {} {
    setNanoRouteMode \
       -routeWithTimingDriven $route_timing \
       -routeTopRoutingLayer $max_route_layer \
-      -routeTdrEffort $route_tdr_effort
+      -routeTdrEffort $route_tdr_effort \
+      -drouteFixAntenna true -routeInsertAntennaDiode true -routeAntennaCellName ANTENNA -routeInsertDiodeForClockNets true
    routeDesign -globalDetail -wireOpt -viaOpt
    checkRoute
 
    save_design routed
 }
 
+proc addDiode {antennaFile antennaCell} {
+
+  unlogCommand dbGet
+  if [catch {open $antennaFile r} fileId] {
+    puts stderr "Cannot open $antennaFile: $fileId"
+  } else {
+    foreach line [split [read $fileId] \n] {
+      # Search for lines matching "instName (cellName) pinName" that have violations
+      if {[regexp {^  (\S+)  (\S+) (\S+)} $line] == 1} {
+        # Remove extra white space
+        regsub -all -- {[[:space:]]+} $line " " line
+        set line [string trimlef $line]
+        # Store instance and pin name to insert diodes on
+        set instName [lindex [split $line] 0]
+        # Modify instance name if it contains escaped characters:
+        set escapedInstName ""
+        foreach hier [split $instName /] {
+          if {[regexp {\[|\]|\.} $hier] == 1} {
+            set hier "\\$hier "
+          }
+          set escapedInstName "$escapedInstName$hier/"
+          set instName $escapedInstName
+        }
+        regsub {/$} $instName {} instName
+        set pinName [lindex [split $line] 2]
+        set instPtr [dbGet -p top.insts.name $instName]
+        set instLoc [lindex [dbGet $instPtr.pt] 0]
+        if {$instName != ""} {
+          # Attach diode and place at location of instance
+          attachDiode -diodeCell $antennaCell -pin $instName $pinName -loc $instLoc
+        }
+      }
+    }
+  }
+  close $fileId
+  # Legalize placement of diodes and run ecoRoute to route them
+  refinePlace -preserveRouting true
+  ecoRoute -modifyOnlyLayers 1:5
+  logCommand dbGet
+}
+
+proc correct_antenna {} {
+   global rpt_dir
+
+   set antenna_rpt_file ${rpt_dir}/antenna.rpt
+   verifyProcessAntenna -report $antenna_rpt_file
+   addDiode $antenna_rpt_file ANTENNA
+   save_design antenna
+}
 #=========================================================================================
 # 
 # add_filler_cells
@@ -391,6 +458,7 @@ proc export_design {} {
 
    set fname "${design}_pr"
    set lib [string toupper $design]
+
    #To be used for importing into Virtuoso
    saveNetlist -excludeLeafCell -includePowerGround "../HDL/GATE/${fname}_virtuoso.v"
    #To be used for modelsim verification (does not contain VDD/VSS ports)
@@ -423,10 +491,11 @@ proc do_steps {start {end -1}} {
          "7"   { place_core_cells }
          "8"   { create_clock_tree }
          "9"   { route_design }
-         "10"  { add_filler_cells }
-         "11"  { verify_design }
-         "12"  { generate_reports }
-         "13"  { export_design }
+         "10"  { correct_antenna }
+         "11"  { add_filler_cells }
+         "12"  { verify_design }
+         "13"  { generate_reports }
+         "14"  { export_design }
       }
    }
 }

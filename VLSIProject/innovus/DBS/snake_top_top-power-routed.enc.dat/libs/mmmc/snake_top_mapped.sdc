@@ -1,1 +1,0 @@
-/home/karmondy/VLSI/VLSIProject/synopsys_dc/SDC/snake_top_mapped.sdc
