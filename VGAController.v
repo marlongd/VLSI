@@ -34,6 +34,10 @@ module VGAController(clk, reset, data, XLocation, YLocation, vga_clk, RED, GREEN
       .active_video(active_video)
     );
 	 
+	 initial begin
+		clkcount = 1'b0;
+	 end
+	 
 	 always @(posedge clk)
     begin
 		clkcount = !clkcount;     		
