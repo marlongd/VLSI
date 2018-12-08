@@ -1,0 +1,30 @@
+ 
+****************************************
+Report : area
+Design : snake_top
+Version: K-2015.06-SP5-6
+Date   : Sat Dec  1 15:27:50 2018
+****************************************
+
+Library(s) Used:
+
+    sclib_tsmc180_tt (File: /research/ece/lnis-teaching/Designkits/tsmc180nm/full_custom_lib/lib/sclib_tsmc180_tt_nldm.db)
+
+Number of ports:                          470
+Number of nets:                          8111
+Number of cells:  xc                       7702
+Number of combinational cells:           6958
+Number of sequential cells:               734
+Number of macros/black boxes:               0
+Number of buf/inv:                        336
+Number of references:                      11
+
+Combinational area:              93109.019844
+Buf/Inv area:                     3040.352057
+Noncombinational area:           37073.870171
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (No wire load specified)
+
+Total cell area:                130182.890015
+Total area:                 undefined
+1

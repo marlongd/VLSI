@@ -5504,3 +5504,8 @@ Merging GDS file /research/ece/lnis-teaching/Designkits/tsmc180nm/full_custom_li
 <CMD> zoomBox 76.225 1115.125 147.175 1187.425
 <CMD> zoomBox 76.225 1115.125 147.175 1187.425
 <CMD_INTERNAL> violationBrowserClose
+
+*** Memory Usage v#1 (Current mem = 1394.707M, initial mem = 179.676M) ***
+*** Message Summary: 399 warning(s), 1647 error(s)
+
+--- Ending "Innovus" (totcpu=0:16:50, real=3:31:23, mem=1394.7M) ---
